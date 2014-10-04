@@ -10,6 +10,36 @@ namespace SushiProject.ViewModels
 {
     public class SettingsViewModel : INotifyPropertyChanged
     {
+        private int projectTitle;
+        public int ProjectTitle
+        {
+            get { return projectTitle; }
+            set {
+                projectTitle = value;
+                OnPropertyChanged("ProjectTitle");
+            }
+        }
+
+        private int screenHeight;
+        public int ScreenHeight
+        {
+            get { return screenHeight; }
+            set {
+                screenHeight = value;
+                OnPropertyChanged("ScreenHeight");
+            }
+        }
+
+        private int screenWidth;
+        public int ScreenWidth
+        {
+            get { return screenWidth; }
+            set{
+                screenWidth = value;
+                OnPropertyChanged("ScreenWidth");
+            }
+        }
+
         private int frameRate;
         public int FrameRate
         {

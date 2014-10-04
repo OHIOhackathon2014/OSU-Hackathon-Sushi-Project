@@ -12,15 +12,17 @@
             
             <Button Content="Cancel"
                     Width="128"
-                    Height="48" />
+                    Height="48" Click="Button_Click_1" />
             <Button Content="Save"
                     Width="128"
-                    Height="48" />
+                    Height="48" Click="Button_Click" />
         </StackPanel>
         <StackPanel Orientation="Vertical">
             <TextBlock Text="Project Settings" FontSize="24" Margin="8 4"></TextBlock>
             <Grid Margin="8">
                 <Grid.RowDefinitions>
+                    <RowDefinition/>
+                    <RowDefinition/>
                     <RowDefinition/>
                     <RowDefinition/>
                     <RowDefinition/>
@@ -30,9 +32,15 @@
                     <ColumnDefinition/>
                 </Grid.ColumnDefinitions>
                 <TextBlock Grid.Row="0" Grid.Column="0" Text="Framerate (FPS)"/>
-                <TextBox Grid.Row="0" Grid.Column="1" Text="{Binding FrameRate}" />
+                <TextBox x:Name="FPS" Grid.Row="0" Grid.Column="1" Text="{Binding FrameRate}" />
                 <TextBlock Grid.Row="1" Grid.Column="0" Text="Default Background Color"/>
                 <wpftk:ColorPicker Grid.Row="1" Grid.Column="1" SelectedColor="{Binding BackgroundColor}" />
+                <TextBlock Grid.Row="4" Grid.Column="0" Text="Project Name"/>
+                <TextBox x:Name="ProjectTitle" Text="{Binding ProjectTitle, UpdateSourceTrigger=Explicit}" Grid.Row="4" Grid.Column="1"></TextBox>
+                <TextBlock Grid.Row="2" Grid.Column="0" Text="Width"/>
+                <TextBox x:Name="ScreenWidth" Text="{Binding BWidth, UpdateSourceTrigger=Explicit}" Grid.Row="2" Grid.Column="1"></TextBox>
+                <TextBlock Grid.Row="3" Grid.Column="0" Text="Height"/>
+                <TextBox x:Name="ScreenHeight" Text="{Binding BHeight, UpdateSourceTrigger=Explicit}" Grid.Row="3" Grid.Column="1"></TextBox>
             </Grid>
         </StackPanel>
     </DockPanel>

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using SushiProject.ViewModels;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -22,6 +23,19 @@ namespace SushiProject.Views
         public SettingsView()
         {
             InitializeComponent();
+        }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            SettingsViewModel SVM = (SettingsViewModel)DataContext;
+            SVM.FrameRate = Convert.ToInt32(FPS.Text);
+            SVM.ScreenHeight = Convert.ToInt32(ScreenHeight.Text);
+            SVM.ScreenWidth = Convert.ToInt32(ScreenWidth.Text);
+        }
+
+        private void Button_Click_1(object sender, RoutedEventArgs e)
+        {
+            Close();
         }
     }
 }
