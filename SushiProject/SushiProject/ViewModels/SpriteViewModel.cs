@@ -1,14 +1,19 @@
-﻿using System;
+﻿using SushiProject.Model;
+using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Media;
 
 namespace SushiProject.ViewModels
 {
     public class SpriteViewModel : INotifyPropertyChanged
     {
+        public Animation animation { get; set; }
+
         private string name;
         public string Name
         {
@@ -20,9 +25,18 @@ namespace SushiProject.ViewModels
             }
         }
 
+        public Collection<ImageSource> Images { get; set; }
+
         public SpriteViewModel()
         {
+            Images = new Collection<ImageSource>();
+            Animation animation = new Animation();
+        }
 
+        public void NewImage(object target)
+        {
+            Image image = new Image();
+            animation.Add(image);
         }
 
         public event PropertyChangedEventHandler PropertyChanged;

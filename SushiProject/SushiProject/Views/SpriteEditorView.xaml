@@ -1,0 +1,74 @@
+﻿<Window x:Class="SushiProject.Views.SpriteEditorView"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="{Binding WindowTitle}" Height="500" Width="500">
+    <DockPanel>
+        <StackPanel DockPanel.Dock="Top" Orientation="Horizontal" HorizontalAlignment="Center">
+            <Button Content="Play" Width="64" Height="64" Margin="8" />
+            <Button Content="Stop" Width="64" Height="64" Margin="8" />
+        </StackPanel>
+        <Button DockPanel.Dock="Bottom" Width="128" Height="48" Content="Save" HorizontalAlignment="Right" />
+        <StackPanel DockPanel.Dock="Top">
+            <Grid Margin="8">
+                <Grid.RowDefinitions>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="96"/>
+                    <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
+                <TextBlock Grid.Row="0" Grid.Column="0" Text="Name" />
+                <TextBox Grid.Row="0" Grid.Column="1" Text="{Binding Name}" />
+                <TextBlock Grid.Row="2" Grid.Column="0" Text="Repeat" />
+                <TextBox Grid.Row="2" Grid.Column="1" Text="{Binding RepeatCount}" />
+            </Grid>
+        </StackPanel>
+        <ListBox x:Name="ImageListBox" ItemsSource="{Binding Images}" HorizontalContentAlignment="Stretch">
+            <ListBox.ItemContainerStyle>
+                <Style TargetType="ListBoxItem">
+                    <Setter Property="HorizontalContentAlignment" Value="Stretch"></Setter>
+                </Style>
+            </ListBox.ItemContainerStyle>
+            <ListBox.ItemTemplate>
+                <DataTemplate>
+                    <DockPanel HorizontalAlignment="Stretch">
+                        <Grid DockPanel.Dock="Left" Width="96">
+                            <Grid.RowDefinitions>
+                                <RowDefinition/>
+                                <RowDefinition/>
+                            </Grid.RowDefinitions>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition/>
+                                <ColumnDefinition />
+                            </Grid.ColumnDefinitions>
+                            <Image Grid.Row="1" Grid.Column="1" Width="48" Height="48" />
+                        </Grid>
+                        <ListBox ItemsSource="{Binding Images}" Width="480" HorizontalAlignment="Stretch" HorizontalContentAlignment="Stretch">
+                            <ListBox.ItemsPanel>
+                                <ItemsPanelTemplate>
+                                    <WrapPanel/>
+                                </ItemsPanelTemplate>
+                            </ListBox.ItemsPanel>
+                            <ListBox.ItemContainerStyle>
+                                <Style TargetType="ListBoxItem">
+                                    <Setter Property="HorizontalContentAlignment" Value="Stretch"></Setter>
+                                </Style>
+                            </ListBox.ItemContainerStyle>
+                            <ListBox.ItemTemplate>
+                                <DataTemplate>
+                                    <DockPanel>
+                                        <TextBlock DockPanel.Dock="Bottom" HorizontalAlignment="Center" Text="{Binding Name}" />
+                                        <Image Width="64" Height="64" Source="pack://application:,,,/Assets/ball.png" />
+                                    </DockPanel>
+                                </DataTemplate>
+                            </ListBox.ItemTemplate>
+                        </ListBox>
+                    </DockPanel>
+                </DataTemplate>
+            </ListBox.ItemTemplate>
+        </ListBox>
+    </DockPanel>
+        
+</Window>

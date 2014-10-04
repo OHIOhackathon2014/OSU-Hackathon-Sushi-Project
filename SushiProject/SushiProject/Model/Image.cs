@@ -13,8 +13,13 @@ namespace SushiProject.Model
 
         public Image(string filePath, string name)
         {
-            FilePath = filePath;
             Name = name;
+            FilePath = filePath;
+        }
+        public Image()
+        {
+            Name = "";
+            FilePath = "";
         }
 
     }

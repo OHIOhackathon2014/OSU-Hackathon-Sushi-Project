@@ -10,27 +10,18 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
 using System.Windows.Shapes;
 
 namespace SushiProject.Views
 {
     /// <summary>
-    /// Interaction logic for SpritesView.xaml
+    /// Interaction logic for SpriteEditorView.xaml
     /// </summary>
-    public partial class SpritesView : UserControl
+    public partial class SpriteEditorView : Window
     {
-        public SpritesView()
+        public SpriteEditorView()
         {
             InitializeComponent();
-        }
-
-        protected void HandleDoubleClick(object sender, MouseButtonEventArgs e)
-        {
-            var window = new SpriteEditorView();
-            window.Owner = Window.GetWindow(this);
-            window.DataContext = (sender as FrameworkElement).DataContext;
-            window.Show();
         }
     }
 }
