@@ -33,6 +33,9 @@
                 </uc:ObjectsView>
             </TabItem>
             <TabItem Header="Levels">
+                <uc:LevelsView>
+                    
+                </uc:LevelsView>
             </TabItem>
             <TabItem Header="Sprites">
             </TabItem>

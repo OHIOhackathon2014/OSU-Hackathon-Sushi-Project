@@ -24,5 +24,13 @@ namespace SushiProject.Views
         {
             InitializeComponent();
         }
+
+        protected void HandleDoubleClick(object sender, MouseButtonEventArgs e)
+        {
+            var window = new LevelEditorView();
+            window.Owner = Window.GetWindow(this);
+            window.DataContext = (sender as FrameworkElement).DataContext;
+            window.Show();
+        }
     }
 }
