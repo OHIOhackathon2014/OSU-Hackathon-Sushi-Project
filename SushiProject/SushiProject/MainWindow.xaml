@@ -1,0 +1,40 @@
+﻿<Window x:Class="SushiProject.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:uc="clr-namespace:SushiProject.Views"
+        Title="Sushi Project" Height="600" Width="800"
+        DataContext="{StaticResource MainWindowViewModel}" >
+    <DockPanel>
+        <Menu>
+            <MenuItem Header="File">
+                <MenuItem Header="New" />
+                <MenuItem Header="Open" />
+                <MenuItem Header="Save" />
+                <Separator/>
+                <MenuItem Header="Preferences..."/>
+            </MenuItem>
+            <MenuItem Header="Project">
+                <MenuItem Header="Settings" />
+            </MenuItem>
+            <MenuItem Header="Compile">
+                <MenuItem Header="Build and Run" />
+                <Separator/>
+                <MenuItem Header="Build" />
+                <MenuItem Header="Run" />
+            </MenuItem>
+        </Menu>
+        <TabControl>
+            <TabItem Header="Objects">
+                <uc:ObjectsView>
+
+                </uc:ObjectsView>
+            </TabItem>
+            <TabItem Header="Levels">
+            </TabItem>
+            <TabItem Header="Sprites">
+            </TabItem>
+            <TabItem Header="Sounds">
+            </TabItem>
+        </TabControl>
+    </DockPanel>
+</Window>
