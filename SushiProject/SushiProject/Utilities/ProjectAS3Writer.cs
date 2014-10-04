@@ -12,7 +12,7 @@ namespace SushiProject.Utilities
         public ProjectAS3Writer() { }
 
         public void WriteMain(GameSettings settings) {
-            string mainText = System.IO.File.ReadAllText(@"C:\game\MainTemplate");
+            string mainText = System.IO.File.ReadAllText("../../Templates/MainTemplate");
 
             string bgcolorstring = settings.BackgroundColor.R.ToString("X") + settings.BackgroundColor.G.ToString("X") + settings.BackgroundColor.B.ToString("X");
             mainText = mainText.Replace("!BGCOLOR!", bgcolorstring);
@@ -27,7 +27,7 @@ namespace SushiProject.Utilities
 
         public void WriteGameObjects(List<GameObject> gameObjects)
         {
-            string templateText = System.IO.File.ReadAllText(@"C:\game\MainTemplate");
+            string templateText = System.IO.File.ReadAllText("../../Templates/GameObjectTemplate");
 
             foreach (GameObject go in gameObjects)
             {
