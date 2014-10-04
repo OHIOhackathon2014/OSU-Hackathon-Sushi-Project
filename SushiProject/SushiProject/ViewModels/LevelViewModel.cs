@@ -20,7 +20,6 @@ namespace SushiProject.ViewModels
             }
         }
 
-
         public LevelViewModel()
         {
 
