@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 namespace SushiProject.Model.Logic
 {
 
-    public class Behavior
+    public class Method
     {
         private string name;
         public string Name
@@ -16,15 +16,14 @@ namespace SushiProject.Model.Logic
             get { return name; }
             set { name = value; }
         }
-
+        
         public Collection<Behavior> AttachedBehaviors { get; set; }
 
-        public Behavior()
+        public Method()
         {
             AttachedBehaviors = new Collection<Behavior>();
-        }
 
-        
+        }
 
     }
 }

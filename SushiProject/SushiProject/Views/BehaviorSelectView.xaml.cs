@@ -15,26 +15,18 @@ using System.Windows.Shapes;
 namespace SushiProject.Views
 {
     /// <summary>
-    /// Interaction logic for ObjectEditorView.xaml
+    /// Interaction logic for BehaviorSelectView.xaml
     /// </summary>
-    public partial class ObjectEditorView : Window
+    public partial class BehaviorSelectView : Window
     {
-        public ObjectEditorView()
+        public BehaviorSelectView()
         {
             InitializeComponent();
         }
 
-        private void ListBoxItem_Selected(object sender, RoutedEventArgs e)
-        {
-
-        }
-
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            BehaviorSelectView window = new BehaviorSelectView();
-            window.Owner = Window.GetWindow(this);
-            window.DataContext = DataContext;
-            window.Show();
+            Close();
         }
     }
 }

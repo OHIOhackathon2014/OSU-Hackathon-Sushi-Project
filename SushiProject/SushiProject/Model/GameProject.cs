@@ -16,15 +16,17 @@ namespace SushiProject.Model
             set { name = value; }
         }
         
-        public Collection<Prefab> Prefabs { get; set; }
+        public Collection<GameObject> Objects { get; set; }
         public Collection<Level> Levels { get; set; }
+        public Collection<Image> Images { get; set; }
         public GameSettings Settings { get; set; }
 
         public GameProject()
         {
-
+            Objects = new Collection<GameObject>();
+            Levels = new Collection<Level>();
+            Images = new Collection<Image>();
+            Settings = new GameSettings();
         }
-
-
     }
 }

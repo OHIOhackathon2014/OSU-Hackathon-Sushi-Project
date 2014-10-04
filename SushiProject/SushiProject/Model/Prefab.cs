@@ -7,14 +7,14 @@ using System.Threading.Tasks;
 
 namespace SushiProject.Model
 {
-    public class Prefab
+    public class GameObject
     {
         public string Name { get; set; }
 
         public Dictionary<string, float> Variables { get; set; }
         public Dictionary<string, Behavior> Behaviors { get; set; }
 
-        public Prefab()
+        public GameObject()
         {
             Variables = new Dictionary<string, float>();
             Behaviors = new Dictionary<string, Behavior>();

@@ -12,7 +12,7 @@ namespace SushiProject.ViewModels
 {
     public class ObjectViewModel : INotifyPropertyChanged
     {
-        public Prefab prefab { get; set; }
+        public GameObject prefab { get; set; }
 
         private string name;
         public string Name
@@ -34,9 +34,16 @@ namespace SushiProject.ViewModels
             Behaviors.Add(new BehaviorViewModel());
             AvailableMethods = new AvailableMethodsViewModel();
 
-            prefab = new Prefab();
+            prefab = new GameObject();
 
             SaveCommand = new Command(Save, AlwaysTrue);
+            AddBehaviorCommand = new Command(AddBehavior, AlwaysTrue);
+        }
+
+        public Command AddBehaviorCommand
+        {
+            get;
+            private set;
         }
 
         public Command SaveCommand
@@ -49,6 +56,22 @@ namespace SushiProject.ViewModels
         {
             // Save the view model data to the model
             prefab.Name = Name;
+        }
+
+        public void AddBehavior(object target)
+        {
+            string behaviorName = Convert.ToString(target);
+            // Does behavior already exist?
+            foreach (BehaviorViewModel behavior in Behaviors)
+            {
+                if (behaviorName.Equals(behavior.Name))
+                {
+                    return;
+                }
+            }
+            BehaviorViewModel bvm = new BehaviorViewModel();
+            bvm.Name = behaviorName;
+            Behaviors.Add(bvm);
         }
 
         public bool AlwaysTrue(object target) { return true; }

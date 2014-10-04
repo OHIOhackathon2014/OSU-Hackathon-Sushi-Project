@@ -1,4 +1,5 @@
-﻿using System;
+﻿using SushiProject.Model;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
@@ -10,6 +11,7 @@ namespace SushiProject.ViewModels
 {
     public class SettingsViewModel : INotifyPropertyChanged
     {
+<<<<<<< HEAD
         private int projectTitle;
         public int ProjectTitle
         {
@@ -39,6 +41,9 @@ namespace SushiProject.ViewModels
                 OnPropertyChanged("ScreenWidth");
             }
         }
+=======
+        public GameProject Project { get; set; }
+>>>>>>> 2c5d88e4fc1100f764913d2cacba5dc1d1d50629
 
         private int frameRate;
         public int FrameRate
@@ -50,7 +55,6 @@ namespace SushiProject.ViewModels
         }
 
         private Color backgroundColor;
-
         public Color BackgroundColor
         {
             get { return backgroundColor; }
