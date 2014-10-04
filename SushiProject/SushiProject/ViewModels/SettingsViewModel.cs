@@ -11,7 +11,39 @@ namespace SushiProject.ViewModels
 {
     public class SettingsViewModel : INotifyPropertyChanged
     {
+<<<<<<< HEAD
+        private int projectTitle;
+        public int ProjectTitle
+        {
+            get { return projectTitle; }
+            set {
+                projectTitle = value;
+                OnPropertyChanged("ProjectTitle");
+            }
+        }
+
+        private int screenHeight;
+        public int ScreenHeight
+        {
+            get { return screenHeight; }
+            set {
+                screenHeight = value;
+                OnPropertyChanged("ScreenHeight");
+            }
+        }
+
+        private int screenWidth;
+        public int ScreenWidth
+        {
+            get { return screenWidth; }
+            set{
+                screenWidth = value;
+                OnPropertyChanged("ScreenWidth");
+            }
+        }
+=======
         public GameProject Project { get; set; }
+>>>>>>> 2c5d88e4fc1100f764913d2cacba5dc1d1d50629
 
         private int frameRate;
         public int FrameRate
