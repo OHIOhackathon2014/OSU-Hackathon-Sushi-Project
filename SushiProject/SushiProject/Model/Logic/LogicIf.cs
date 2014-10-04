@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace SushiProject.Model.Logic
 {
-    class LogicIf
+    public class LogicIf
     {
     }
 }

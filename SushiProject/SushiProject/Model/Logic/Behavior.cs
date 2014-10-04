@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 namespace SushiProject.Model.Logic
 {
 
-    class Behavior
+    public class Behavior
     {
     }
 }
