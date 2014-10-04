@@ -41,7 +41,6 @@ namespace SushiProject.ViewModels
             }
         }
         public GameProject Project { get; set; }
-
         private int frameRate;
         public int FrameRate
         {

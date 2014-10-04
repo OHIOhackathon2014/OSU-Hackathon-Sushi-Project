@@ -21,8 +21,8 @@ namespace SushiProject.Model
             FrameRate = 60;
             BackgroundColor = Colors.CornflowerBlue;
 
-            var writer = new SushiProject.Utilities.ProjectAS3Writer();
-            writer.WriteMain(this);
+            //var writer = new SushiProject.Utilities.ProjectAS3Writer();
+            //writer.WriteMain(this);
         }
 
         

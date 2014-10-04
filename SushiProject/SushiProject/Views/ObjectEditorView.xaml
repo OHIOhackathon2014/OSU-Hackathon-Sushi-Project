@@ -64,26 +64,39 @@
                 <Image/>
             </DockPanel>
             <ListBox>
-                <ListBox ItemsSource="{Binding Behaviors}"
-                             HorizontalContentAlignment="Stretch">
+                <ListBox ItemsSource="{Binding Behaviors}" HorizontalContentAlignment="Stretch">
+                    <ListBox.ItemContainerStyle>
+                        <Style TargetType="ListBoxItem">
+                            <Setter Property="HorizontalContentAlignment" Value="Stretch"></Setter>
+                        </Style>
+                    </ListBox.ItemContainerStyle>
                     <ListBox.ItemTemplate>
                         <DataTemplate>
-                            <DockPanel>
+                            <DockPanel HorizontalAlignment="Stretch">
                                 <Grid DockPanel.Dock="Left"
                                           Width="96">
                                     <Grid.RowDefinitions>
                                         <RowDefinition/>
                                         <RowDefinition/>
                                     </Grid.RowDefinitions>
-                                    <TextBlock Grid.Row="0" Grid.Column="0" Text="{Binding Name}" />
-                                    <Image Grid.Row="1" Grid.Column="0" Width="48" Height="48" />
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition/>
+                                        <ColumnDefinition />
+                                    </Grid.ColumnDefinitions>
+                                    <TextBlock Grid.Row="0" Grid.Column="0" Text="{Binding Name}" HorizontalAlignment="Stretch" />
+                                    <Image Grid.Row="1" Grid.Column="1" Width="48" Height="48" />
                                 </Grid>
-                                <ListBox ItemsSource="{Binding MethodCollection}">
+                                <ListBox ItemsSource="{Binding Methods}" Width="480" HorizontalAlignment="Stretch" HorizontalContentAlignment="Stretch">
                                     <ListBox.ItemsPanel>
                                         <ItemsPanelTemplate>
                                             <WrapPanel/>
                                         </ItemsPanelTemplate>
                                     </ListBox.ItemsPanel>
+                                    <ListBox.ItemContainerStyle>
+                                        <Style TargetType="ListBoxItem">
+                                            <Setter Property="HorizontalContentAlignment" Value="Stretch"></Setter>
+                                        </Style>
+                                    </ListBox.ItemContainerStyle>
                                     <ListBox.ItemTemplate>
                                         <DataTemplate>
                                             <DockPanel>

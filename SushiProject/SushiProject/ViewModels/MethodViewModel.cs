@@ -21,7 +21,6 @@ namespace SushiProject.ViewModels
             }
         }
 
-
         public MethodViewModel()
         {
             Name = "Spawn Instance";

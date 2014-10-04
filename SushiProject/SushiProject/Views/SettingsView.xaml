@@ -34,7 +34,7 @@
                 <TextBlock Grid.Row="0" Grid.Column="0" Text="Framerate (FPS)"/>
                 <TextBox x:Name="FPS" Grid.Row="0" Grid.Column="1" Text="{Binding FrameRate}" />
                 <TextBlock Grid.Row="1" Grid.Column="0" Text="Default Background Color"/>
-                <wpftk:ColorPicker Grid.Row="1" Grid.Column="1" SelectedColor="{Binding BackgroundColor}" />
+                <wpftk:ColorPicker x:Name="BCP" Grid.Column="1" SelectedColor="{Binding BackgroundColor}" />
                 <TextBlock Grid.Row="4" Grid.Column="0" Text="Project Name"/>
                 <TextBox x:Name="ProjectTitle" Text="{Binding ProjectTitle, UpdateSourceTrigger=Explicit}" Grid.Row="4" Grid.Column="1"></TextBox>
                 <TextBlock Grid.Row="2" Grid.Column="0" Text="Width"/>

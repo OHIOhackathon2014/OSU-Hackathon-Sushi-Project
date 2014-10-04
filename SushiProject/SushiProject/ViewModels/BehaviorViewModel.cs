@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Linq;
 using System.Text;
@@ -19,6 +20,8 @@ namespace SushiProject.ViewModels
                 OnPropertyChanged("Name");
             }
         }
+
+        public ObservableCollection<MethodViewModel> Methods = new ObservableCollection<MethodViewModel>();
 
         public BehaviorViewModel()
         {

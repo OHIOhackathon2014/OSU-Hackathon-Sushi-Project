@@ -84,7 +84,7 @@
     <Compile Include="Model\LevelObject.cs" />
     <Compile Include="Model\Logic\Method.cs" />
     <Compile Include="Model\Logic\Behavior.cs" />
-    <Compile Include="Model\GameObject.cs" />
+    <Compile Include="Model\Prefab.cs" />
     <Compile Include="Utilities\ProjectAS3Compiler.cs" />
     <Compile Include="Utilities\ProjectAS3Writer.cs" />
     <Compile Include="Utilities\ProjectXMLWriter.cs" />
@@ -195,8 +195,6 @@
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
     </None>
     <AppDesigner Include="Properties\" />
-    <None Include="Templates\GameObjectTemplate" />
-    <None Include="Templates\MainTemplate" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
