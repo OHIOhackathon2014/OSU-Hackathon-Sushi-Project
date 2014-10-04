@@ -28,6 +28,9 @@ namespace SushiProject.Model
             go.Name = "ball";
             Objects.Add(go);
             Levels = new Collection<Level>();
+            Level lo = new Level();
+            lo.Name = "level 1";
+            Levels.Add(lo);
             Images = new Collection<Image>();
             Settings = new GameSettings();
         }

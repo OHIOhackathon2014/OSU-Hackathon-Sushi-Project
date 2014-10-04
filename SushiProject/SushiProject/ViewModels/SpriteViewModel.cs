@@ -1,4 +1,5 @@
-﻿using System;
+﻿using SushiProject.Model;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
@@ -17,6 +18,18 @@ namespace SushiProject.ViewModels
             {
                 name = value;
                 OnPropertyChanged("Name");
+            }
+        }
+
+        private Image image;
+        public Image Image
+        {
+            get { return image; }
+            set
+            {
+                image = value;
+                Name = image.Name;
+                OnPropertyChanged("Image");
             }
         }
 

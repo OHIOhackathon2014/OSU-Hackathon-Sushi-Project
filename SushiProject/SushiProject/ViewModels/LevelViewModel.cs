@@ -12,7 +12,15 @@ namespace SushiProject.ViewModels
 {
     public class LevelViewModel : INotifyPropertyChanged
     {
-        public Level level { get; set; }
+        private Level _level;
+        public Level level
+        {
+            get { return _level; }
+            set {
+                _level = value;
+                OnPropertyChanged("level");
+            }
+        }
 
         private string windowTitle;
 
@@ -39,6 +47,7 @@ namespace SushiProject.ViewModels
         }
 
         public ObservableCollection<LevelObjectViewModel> LevelObjects{ get; set; }
+
         private ObjectsListViewModel objectsVM;
 	    public ObjectsListViewModel ObjectsVM
 	    {

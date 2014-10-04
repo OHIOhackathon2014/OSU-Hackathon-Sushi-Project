@@ -27,7 +27,7 @@ namespace SushiProject.ViewModels
             set
             {
                 project = value;
-                ObjectCollection = new ObservableCollection<ObjectViewModel>();
+                ObjectCollection.Clear();
                 foreach (GameObject go in Project.Objects)
                 {
                     ObjectViewModel ovm = new ObjectViewModel();

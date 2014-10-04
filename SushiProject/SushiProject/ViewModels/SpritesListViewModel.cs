@@ -17,7 +17,25 @@ namespace SushiProject.ViewModels
             set;
         }
 
-        public GameProject Project { get; set; }
+        private GameProject gameProject;
+
+        public GameProject GameProject
+        {
+            get { return gameProject; }
+            set {
+                gameProject = value;
+
+                SpriteCollection.Clear();
+                foreach (Image img in gameProject.Images)
+                {
+                    SpriteViewModel svm = new SpriteViewModel();
+                    svm.Image = img;
+                    SpriteCollection.Add(svm);
+                }
+
+                OnPropertyChanged("GameProject");
+            }
+        }
 
         public SpritesListViewModel()
         {
