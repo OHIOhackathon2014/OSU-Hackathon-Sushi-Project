@@ -4,22 +4,16 @@
         xmlns:wb="WriteableBitmapEx.Wpf"
         Title="Level Editor" Width="800" Height="600">
     <DockPanel>
-        <Menu DockPanel.Dock="Top">
-            <MenuItem Header="File">
-                <MenuItem Header="Save"/>
-            </MenuItem>
-            <MenuItem Header="Settings">
-            </MenuItem>
-        </Menu>
+        
         <StackPanel DockPanel.Dock="Bottom" HorizontalAlignment="Right">
             <Button Content="Save"
                     Width="80" Height="32" />
         </StackPanel>
         <DockPanel DockPanel.Dock="Left" Width="192">
             <ListBox>
-                
             </ListBox>
-            
+            <ListBox>
+            </ListBox>
         </DockPanel>
         <DockPanel DockPanel.Dock="Right">
             <StackPanel Width="192"
