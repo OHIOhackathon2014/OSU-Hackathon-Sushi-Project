@@ -27,12 +27,14 @@ namespace SushiProject.Views
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            SettingsViewModel SVM = (SettingsViewModel)DataContext;
-            SVM.FrameRate = Convert.ToInt32(FPS.Text);
-            SVM.ScreenHeight = Convert.ToInt32(ScreenHeight.Text);
-            SVM.ScreenWidth = Convert.ToInt32(ScreenWidth.Text);
-            SVM.BackgroundColor = BCP.SelectedColor;
-
+            //SettingsViewModel SVM = (SettingsViewModel)DataContext;
+            //SVM.FrameRate = Convert.ToInt32(FPS.Text);
+            //SVM.ScreenHeight = Convert.ToInt32(ScreenHeight.Text);
+            //SVM.ScreenWidth = Convert.ToInt32(ScreenWidth.Text);
+            //SVM.BackgroundColor = BCP.SelectedColor;
+            SettingsViewModel ss = (SettingsViewModel)DataContext;
+            ss.SaveChanges();
+            Close();
         }
 
         private void Button_Click_1(object sender, RoutedEventArgs e)

@@ -5,18 +5,20 @@
     <DockPanel>
         <DockPanel DockPanel.Dock="Top" Height="64">
             <Image DockPanel.Dock="Left" Width="64" Height="64" Source="pack://application:,,,/Assets/ball.png" ></Image>
-            <Grid DockPanel.Dock="Left">
-                <Grid.RowDefinitions>
-                    <RowDefinition/>
-                    <RowDefinition/>
-                </Grid.RowDefinitions>
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition/>
-                    <ColumnDefinition/>
-                </Grid.ColumnDefinitions>
-                <TextBlock Grid.Row="0" Grid.Column="0" Text="Name"/>
-                <TextBox Grid.Row="0" Grid.Column="1" Width="128" Text="{Binding Name}"/>
-            </Grid>
+            <StackPanel DockPanel.Dock="Left" Orientation="Vertical">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                    </Grid.ColumnDefinitions>
+                    <TextBlock Grid.Row="0" Grid.Column="0" Text="Name"/>
+                    <TextBox Grid.Row="0" Grid.Column="1" Width="128" Text="{Binding Name}"/>
+                </Grid>
+            </StackPanel>
             <Image></Image>
         </DockPanel>
 
@@ -37,7 +39,7 @@
                         <DataTemplate>
                             <DockPanel>
                                 <TextBlock Text="{Binding Name}" HorizontalAlignment="Center" DockPanel.Dock="Bottom"/>
-                                <Image Width="40" Height="40" Source="pack://application:,,,/Assets/ball.png" Margin="3"/>
+                                <Image Width="40" Height="40" Source="pack://application:,,,/Assets/Methods/tile.png" Margin="3"/>
                             </DockPanel>
                         </DataTemplate>
                     </ItemsControl.ItemTemplate>

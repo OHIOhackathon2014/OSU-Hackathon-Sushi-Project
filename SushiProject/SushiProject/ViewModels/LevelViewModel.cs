@@ -14,6 +14,17 @@ namespace SushiProject.ViewModels
     {
         public Level level { get; set; }
 
+        private string windowTitle;
+
+        public string WindowTitle
+        {
+            get { return windowTitle; }
+            set {
+                windowTitle = value;
+                OnPropertyChanged("WindowTitle");
+            }
+        }
+        
         private string name;
         public string Name
         {
@@ -22,6 +33,7 @@ namespace SushiProject.ViewModels
             {
                 name = value;
                 level.Name = name;
+                WindowTitle = String.Format("Level Editor - {0}", name);
                 OnPropertyChanged("Name");
             }
         }

@@ -11,8 +11,24 @@ namespace SushiProject.ViewModels
 {
     public class SettingsViewModel : INotifyPropertyChanged
     {
-        private int projectTitle;
-        public int ProjectTitle
+        private GameProject project;
+
+        public GameProject Project
+        {
+            get { return project; }
+            set {
+                project = value;
+                ProjectTitle = project.Name;
+                BackgroundColor = project.Settings.BackgroundColor;
+                FrameRate = project.Settings.FrameRate;
+                ScreenWidth = project.Settings.ScreenWidth;
+                ScreenHeight = project.Settings.ScreenHeight;
+                OnPropertyChanged("Project");
+            }
+        }
+
+        private string projectTitle;
+        public string ProjectTitle
         {
             get { return projectTitle; }
             set {
@@ -40,7 +56,7 @@ namespace SushiProject.ViewModels
                 OnPropertyChanged("ScreenWidth");
             }
         }
-        public GameProject Project { get; set; }
+
         private int frameRate;
         public int FrameRate
         {
@@ -64,6 +80,24 @@ namespace SushiProject.ViewModels
         public SettingsViewModel()
         {
 
+        }
+
+        public void SaveChanges()
+        {
+            project.Name = ProjectTitle;
+            project.Settings.BackgroundColor = BackgroundColor;
+            project.Settings.FrameRate = FrameRate;
+            project.Settings.ScreenWidth = ScreenWidth;
+            project.Settings.ScreenHeight = ScreenHeight;
+        }
+
+        public void RevertChanges()
+        {
+            ProjectTitle = project.Name;
+            BackgroundColor = project.Settings.BackgroundColor;
+            FrameRate = project.Settings.FrameRate;
+            ScreenWidth = project.Settings.ScreenWidth;
+            ScreenHeight = project.Settings.ScreenHeight;
         }
 
         public event PropertyChangedEventHandler PropertyChanged;
