@@ -21,6 +21,8 @@ namespace SushiProject.Views
     /// </summary>
     public partial class ObjectsView : UserControl
     {
+        private ObjectViewModel _local_ovm_for_rename;
+
         public ObjectsView()
         {
             InitializeComponent();
@@ -38,7 +40,6 @@ namespace SushiProject.Views
         {
             object selected = ObjectsListBox.SelectedItem;
             if (selected == null) return;
-
             var window = new ObjectEditorView();
             window.Owner = Window.GetWindow(this);
             window.DataContext = selected;
@@ -47,7 +48,22 @@ namespace SushiProject.Views
 
         private void RenameButton(object sender, RoutedEventArgs e)
         {
+            ObjectViewModel selected = (ObjectViewModel)ObjectsListBox.SelectedItem;
+            if (selected == null) return;
 
+            _local_ovm_for_rename = selected;
+
+            RenameView window = new RenameView();
+            window.SetText(selected.Name);
+            window.Owner = Window.GetWindow(this);
+            window.DataContext = selected;
+            window.Show();
+            window.Closed += window_Closed;
+        }
+
+        void window_Closed(object sender, EventArgs e)
+        {
+            _local_ovm_for_rename.Name = ((RenameView)sender).GetText();
         }
 
         private void DeleteButton(object sender, RoutedEventArgs e)

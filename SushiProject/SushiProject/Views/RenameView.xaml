@@ -1,0 +1,11 @@
+﻿<Window x:Class="SushiProject.Views.RenameView"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Rename" Height="105.5" Width="336.09">
+    <StackPanel>
+        <TextBox x:Name="RenameTextBox" HorizontalAlignment="Left" Margin="10,10,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="308"/>
+        
+        <Button Content="Ok" HorizontalAlignment="Center" Margin="6" VerticalAlignment="Center" Width="84" Height="28" Click="Button_Click"/>
+
+    </StackPanel>
+</Window>

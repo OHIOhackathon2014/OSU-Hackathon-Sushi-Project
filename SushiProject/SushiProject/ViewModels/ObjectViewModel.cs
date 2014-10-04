@@ -14,6 +14,16 @@ namespace SushiProject.ViewModels
     {
         public GameObject gameObject { get; set; }
 
+        private string windowTitle="";
+        public string WindowTitle
+        {
+            get { return windowTitle; }
+            set {
+                windowTitle = value;
+                OnPropertyChanged("WindowTitle");
+            }
+        }
+        
         private string name;
         public string Name
         {
@@ -21,6 +31,7 @@ namespace SushiProject.ViewModels
             set
             {
                 name = value;
+                WindowTitle = String.Format("Object Editor - {0}", name);
                 OnPropertyChanged("Name");
             }
         }

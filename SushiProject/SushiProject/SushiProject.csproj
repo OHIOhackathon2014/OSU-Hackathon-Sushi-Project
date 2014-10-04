@@ -117,6 +117,9 @@
     <Compile Include="Views\ObjectsView.xaml.cs">
       <DependentUpon>ObjectsView.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Views\RenameView.xaml.cs">
+      <DependentUpon>RenameView.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\SettingsView.xaml.cs">
       <DependentUpon>SettingsView.xaml</DependentUpon>
     </Compile>
@@ -155,6 +158,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\ObjectsView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\RenameView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
