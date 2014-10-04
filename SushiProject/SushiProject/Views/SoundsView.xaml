@@ -28,6 +28,10 @@
                             Text="{Binding Path=Name}"
                             HorizontalAlignment="Center"/>
                         <Image Source="pack://application:,,,/Assets/speaker.png" />
+                        <TextBlock DockPanel.Dock="Bottom"
+                            Text="{Binding Path=Name}"
+                            HorizontalAlignment="Center"/>
+                        <Image Source="pack://application:,,,/Assets/speaker.png" />
                     </DockPanel>
                 </DataTemplate>
             </ListBox.ItemTemplate>

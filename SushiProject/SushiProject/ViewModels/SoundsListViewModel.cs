@@ -1,4 +1,5 @@
-﻿using SushiProject.Model;
+﻿using SushiProject.Commands;
+using SushiProject.Model;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -21,11 +22,24 @@ namespace SushiProject.ViewModels
 
         public SoundsListViewModel()
         {
+            NewSoundCommand = new Command(NewSound, AlwaysTrue);
             SoundCollection = new ObservableCollection<SoundViewModel>();
             SoundViewModel svm = new SoundViewModel();
             svm.Name = "bounce.mp3";
             SoundCollection.Add(svm);
+
+            
         }
+
+        public void NewSound(object target)
+        {
+            DialogResult dialogResult = MessageBox.Show("Do you want to make a new sound file?", "New Project", System.Windows.Forms.MessageBoxButtons.YesNo);
+            if (dialogResult == DialogResult.Yes)
+            {
+                NewSoundFile = new Sound();
+            }
+        }
+
 
         public event PropertyChangedEventHandler PropertyChanged;
         protected void OnPropertyChanged(string name)
