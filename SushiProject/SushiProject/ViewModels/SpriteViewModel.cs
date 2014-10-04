@@ -25,7 +25,6 @@ namespace SushiProject.ViewModels
             }
         }
 
-<<<<<<< HEAD
         private Image image;
         public Image Image
         {
@@ -37,9 +36,7 @@ namespace SushiProject.ViewModels
                 OnPropertyChanged("Image");
             }
         }
-=======
         public Collection<ImageSource> Images { get; set; }
->>>>>>> 0c65f4137d26bae5e2388ff7bdeb9d96ee9e2ad3
 
         public SpriteViewModel()
         {
