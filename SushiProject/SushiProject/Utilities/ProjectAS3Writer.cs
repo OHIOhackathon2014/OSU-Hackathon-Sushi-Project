@@ -4,11 +4,14 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using SushiProject.Model;
+using System.IO;
 
 namespace SushiProject.Utilities
 {
     class ProjectAS3Writer
     {
+        public string path = "C:/sushigame/";
+
         public ProjectAS3Writer() { }
 
         public void WriteMain(GameSettings settings) {
@@ -22,7 +25,12 @@ namespace SushiProject.Utilities
 
             // WriteAllText creates a file, writes the specified string to the file, 
             // and then closes the file.
-            System.IO.File.WriteAllText(@"C:\game\Main.as", mainText);
+
+
+            if (!Directory.Exists(path))
+                Directory.CreateDirectory(path);
+
+            System.IO.File.WriteAllText(path + "Main.as", mainText);
         }
 
         public void WriteGameObjects(List<GameObject> gameObjects)
@@ -32,7 +40,7 @@ namespace SushiProject.Utilities
             foreach (GameObject go in gameObjects)
             {
                 string gameObjectText = templateText.Replace("!NAME!", go.Name);
-                System.IO.File.WriteAllText(@"C:\game\" + go.Name + ".as", gameObjectText);
+                System.IO.File.WriteAllText(path + go.Name + ".as", gameObjectText);
             }
         }
     }
