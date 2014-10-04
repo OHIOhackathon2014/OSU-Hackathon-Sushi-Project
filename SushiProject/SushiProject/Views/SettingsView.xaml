@@ -3,13 +3,13 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:wpftk="http://schemas.xceed.com/wpf/xaml/toolkit"
         xmlns:vm="clr-namespace:SushiProject.ViewModels"
-        Width="512" Height="640" Title="Project Settings" ResizeMode="NoResize">
+        Width="341.851" Height="334.03" Title="Project Settings" ResizeMode="NoResize">
     <Window.DataContext>
         <vm:SettingsViewModel/>
     </Window.DataContext>
     <DockPanel>
         <StackPanel DockPanel.Dock="Bottom" Orientation="Horizontal" HorizontalAlignment="Right">
-            
+
             <Button Content="Cancel"
                     Width="128"
                     Height="48" Click="Button_Click_1" />
@@ -28,19 +28,19 @@
                     <RowDefinition/>
                 </Grid.RowDefinitions>
                 <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="256"/>
+                    <ColumnDefinition Width="108"/>
                     <ColumnDefinition/>
                 </Grid.ColumnDefinitions>
-                <TextBlock Grid.Row="0" Grid.Column="0" Text="Framerate (FPS)"/>
-                <TextBox x:Name="FPS" Grid.Row="0" Grid.Column="1" Text="{Binding FrameRate}" />
-                <TextBlock Grid.Row="1" Grid.Column="0" Text="Default Background Color"/>
-                <wpftk:ColorPicker x:Name="BCP" Grid.Column="1" SelectedColor="{Binding BackgroundColor}" />
-                <TextBlock Grid.Row="4" Grid.Column="0" Text="Project Name"/>
-                <TextBox x:Name="ProjectTitle" Text="{Binding ProjectTitle, UpdateSourceTrigger=Explicit}" Grid.Row="4" Grid.Column="1"></TextBox>
-                <TextBlock Grid.Row="2" Grid.Column="0" Text="Width"/>
-                <TextBox x:Name="ScreenWidth" Text="{Binding BWidth, UpdateSourceTrigger=Explicit}" Grid.Row="2" Grid.Column="1"></TextBox>
-                <TextBlock Grid.Row="3" Grid.Column="0" Text="Height"/>
-                <TextBox x:Name="ScreenHeight" Text="{Binding BHeight, UpdateSourceTrigger=Explicit}" Grid.Row="3" Grid.Column="1"></TextBox>
+                <TextBlock Grid.Row="0" Grid.Column="0" Text="Project Name"/>
+                <TextBox x:Name="ProjectTitle" Text="{Binding ProjectTitle, UpdateSourceTrigger=Explicit}" Grid.Row="0" Grid.Column="1"></TextBox>
+                <TextBlock Grid.Row="1" Grid.Column="0" Text="Framerate (FPS)"/>
+                <TextBox x:Name="FPS" Grid.Row="1" Grid.Column="1" Text="{Binding FrameRate}" />
+                <TextBlock Grid.Row="2" Grid.Column="0" Text="Background Color"/>
+                <wpftk:ColorPicker x:Name="BCP" Grid.Row="2" Grid.Column="1" SelectedColor="{Binding BackgroundColor}" />
+                <TextBlock Grid.Row="3" Grid.Column="0" Text="Width"/>
+                <TextBox x:Name="ScreenWidth" Text="{Binding ScreenWidth}" Grid.Row="3" Grid.Column="1"></TextBox>
+                <TextBlock Grid.Row="4" Grid.Column="0" Text="Height"/>
+                <TextBox x:Name="ScreenHeight" Text="{Binding ScreenHeight}" Grid.Row="4" Grid.Column="1"></TextBox>
             </Grid>
         </StackPanel>
     </DockPanel>

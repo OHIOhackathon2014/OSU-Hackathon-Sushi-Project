@@ -13,12 +13,26 @@ namespace SushiProject.Model
         public double Rotation { get; set; }
         public GameObject Class { get; set; }
 
+        public LevelObject(GameObject Class, double X, double Y, double Rotation)
+        {
+            this.X = X;
+            this.Y = Y;
+            this.Class = Class;
+            this.Rotation = Rotation;
+        }
         public LevelObject(GameObject Class, double X, double Y)
         {
             this.X = X;
             this.Y = Y;
             this.Class = Class;
-            Rotation = 0.0;
+            Rotation = 0;
+        }
+        public LevelObject()
+        {
+            this.X = 0;
+            this.Y = 0;
+            this.Class = null;
+            Rotation = 0;
         }
     }
 }

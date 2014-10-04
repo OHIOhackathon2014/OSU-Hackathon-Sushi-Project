@@ -1,5 +1,6 @@
 ﻿using SushiProject.Commands;
 using SushiProject.Model;
+using SushiProject.Model.Logic;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -7,6 +8,7 @@ using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace SushiProject.ViewModels
 {
@@ -47,26 +49,31 @@ namespace SushiProject.ViewModels
 
             gameObject = new GameObject();
 
-            SaveCommand = new Command(Save, AlwaysTrue);
+            DeleteCommand = new Command(DeleteBehavior, AlwaysTrue);
+            SaveCommand = new Command(SaveBehavior, AlwaysTrue);
             AddBehaviorCommand = new Command(AddBehavior, AlwaysTrue);
         }
 
-        public Command AddBehaviorCommand
-        {
-            get;
-            private set;
-        }
+        public Command AddBehaviorCommand { get; private set; }
+        public Command SaveCommand { get; private set; }
+        public Command DeleteCommand { get; private set; }
 
-        public Command SaveCommand
-        {
-            get;
-            private set;
-        }
-
-        public void Save(object target)
+        public void SaveBehavior(object target)
         {
             // Save the view model data to the model
             gameObject.Name = Name;
+        }
+
+        public void DeleteBehavior(object target)
+        {
+            BehaviorViewModel behavior = (BehaviorViewModel)target;
+            if (behavior == null) return;
+            DialogResult dialogResult = MessageBox.Show(String.Format("Are you sure you want to delete {0}?", behavior.Name), "Confirm Delete Behavior", System.Windows.Forms.MessageBoxButtons.YesNo);
+            if (dialogResult == DialogResult.Yes)
+            {
+                Behaviors.Remove(behavior);
+                gameObject.Behaviors.Remove(behavior.Name);
+            }
         }
 
         public void AddBehavior(object target)

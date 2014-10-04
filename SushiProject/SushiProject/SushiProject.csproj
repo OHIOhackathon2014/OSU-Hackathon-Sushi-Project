@@ -127,6 +127,12 @@
     <Compile Include="Views\SoundsView.xaml.cs">
       <DependentUpon>SoundsView.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Views\SoundEditorView.xaml.cs">
+      <DependentUpon>SoundEditorView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\SpriteEditorView.xaml.cs">
+      <DependentUpon>SpriteEditorView.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\SpritesView.xaml.cs">
       <DependentUpon>SpritesView.xaml</DependentUpon>
     </Compile>
@@ -174,6 +180,14 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Views\SoundEditorView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\SpriteEditorView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Views\SpritesView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -215,6 +229,9 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Assets\speaker.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Assets\Methods\tile.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

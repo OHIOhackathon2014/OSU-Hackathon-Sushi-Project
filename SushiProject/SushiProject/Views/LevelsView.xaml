@@ -13,12 +13,12 @@
     </UserControl.Resources>
     <DockPanel>
         <StackPanel DockPanel.Dock ="Bottom" Orientation="Horizontal" HorizontalAlignment="Center">
-            <Button Height="64" Width="64" Content="New" />
-            <Button Height="64" Width="64" Content="Open" />
-            <Button Height="64" Width="64" Content="Rename" />
-            <Button Height="64" Width="64" Content="Delete" />
+            <Button Height="64" Width="64" Content="New" Command="{Binding NewCommand}"/>
+            <Button Height="64" Width="64" Content="Open" Click="OpenButton" />
+            <Button Height="64" Width="64" Content="Rename" Click="RenameButton"/>
+            <Button Height="64" Width="64" Content="Delete" Click="DeleteButton"/>
         </StackPanel>
-        <ListBox ItemsSource="{Binding LevelCollection}" ItemContainerStyle="{StaticResource itemstyle}">
+        <ListBox x:Name="LevelsListBox" ItemsSource="{Binding LevelCollection}" ItemContainerStyle="{StaticResource itemstyle}">
             <ListBox.ItemsPanel>
                 <ItemsPanelTemplate>
                     <WrapPanel/>

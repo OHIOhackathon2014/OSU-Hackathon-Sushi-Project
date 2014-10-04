@@ -11,7 +11,7 @@ namespace SushiProject.Model
     {
         public int ScreenWidth { get; set; }
         public int ScreenHeight { get; set; }
-        public float FrameRate { get; set; }
+        public int FrameRate { get; set; }
         public Color BackgroundColor { get; set; }
 
         public GameSettings()

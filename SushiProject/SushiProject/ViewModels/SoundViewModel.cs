@@ -11,6 +11,7 @@ namespace SushiProject.ViewModels
 {
     public class SoundViewModel : INotifyPropertyChanged
     {
+<<<<<<< HEAD
         private System.Media.SoundPlayer soundClip = new System.Media.SoundPlayer();
         public System.Media.SoundPlayer SoundClip
         {
@@ -21,6 +22,21 @@ namespace SushiProject.ViewModels
             }
         }
         
+=======
+
+
+        private string windowTitle;
+        public string WindowTitle
+        {
+            get { return windowTitle; }
+            set
+            {
+                windowTitle = value;
+                OnPropertyChanged("WindowTitle");
+            }
+        }
+
+>>>>>>> d5d0626d6e4a1326d3fc2472344260bf49029581
         private string name;
         public string Name
         {
@@ -28,6 +44,7 @@ namespace SushiProject.ViewModels
             set
             {
                 name = value;
+                WindowTitle = String.Format("Sound Editor - {0}", Name);
                 OnPropertyChanged("Name");
             }
         }

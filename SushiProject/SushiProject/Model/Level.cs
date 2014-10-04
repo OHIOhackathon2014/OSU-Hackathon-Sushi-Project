@@ -15,7 +15,6 @@ namespace SushiProject.Model
         public Level()
         {
             levelObjects = new Collection<LevelObject>();
-
         }
     }
 }

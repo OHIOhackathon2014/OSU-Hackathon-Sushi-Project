@@ -22,8 +22,6 @@ namespace SushiProject
     /// </summary>
     public partial class MainWindow : Window
     {
-        private SettingsView settingsView;
-
         public MainWindow()
         {
             InitializeComponent();
@@ -32,9 +30,12 @@ namespace SushiProject
 
         private void ProjectSettings_Click(object sender, RoutedEventArgs e)
         {
-            if (settingsView == null) settingsView = new SettingsView();
+            SettingsView settingsView = new SettingsView();
             settingsView.Owner = Window.GetWindow(this);
-            settingsView.DataContext= ((MainWindowViewModel)DataContext).Settings;
+            MainWindowViewModel mwvm = ((MainWindowViewModel)DataContext);
+            SettingsViewModel svm = mwvm.Settings;
+            svm.Project = mwvm.Project;
+            settingsView.DataContext = svm;
             settingsView.Show();
         }
     }

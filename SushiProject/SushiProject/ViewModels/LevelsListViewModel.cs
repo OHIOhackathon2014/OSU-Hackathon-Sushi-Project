@@ -47,6 +47,7 @@ namespace SushiProject.ViewModels
             set
             {
                 project = value;
+                LevelCollection.Clear();
                 foreach (Level level in Project.Levels)
                 {
                     LevelViewModel lvm = new LevelViewModel();
@@ -54,6 +55,7 @@ namespace SushiProject.ViewModels
                     lvm.Name = level.Name;
                     LevelCollection.Add(lvm);
                 }
+                OnPropertyChanged("Project");
             }
         }
 
@@ -68,11 +70,7 @@ namespace SushiProject.ViewModels
             NewCommand = new Command(NewLevel, AlwaysTrue);
         }
 
-        public Command NewCommand
-        {
-            get;
-            private set;
-        }
+        public Command NewCommand { get; private set; }
 
         public void NewLevel(object target)
         {

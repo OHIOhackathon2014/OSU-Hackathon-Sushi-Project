@@ -23,7 +23,7 @@ namespace SushiProject.ViewModels
             set { project = value;
                 Objects.Project = Project;
                 Levels.Project = Project;
-                Sprites.Project = Project;
+                Sprites.GameProject = Project;
                 Sounds.Project = Project;
                 Settings.Project = Project;
 
@@ -32,16 +32,17 @@ namespace SushiProject.ViewModels
         }
 
         public ObjectsListViewModel Objects { get; private set; }
-        public LevelsListViewModel Levels { get; private set; }
-        public SoundsListViewModel Sounds { get; private set; }
+        public LevelsListViewModel  Levels { get; private set; }
+        public SoundsListViewModel  Sounds { get; private set; }
         public SpritesListViewModel Sprites { get; private set; }
-        public SettingsViewModel Settings { get; private set; }
+        public SettingsViewModel    Settings { get; private set; }
 
         public MainWindowViewModel()
         {
             Objects = new ObjectsListViewModel();
-            Objects.Project = project;
+            Objects.Project = Project;
             Levels = new LevelsListViewModel();
+            Levels.Project = Project;
             Levels.ObjectsVM = Objects;
             Sprites = new SpritesListViewModel();
             Sounds = new SoundsListViewModel();
@@ -79,11 +80,14 @@ namespace SushiProject.ViewModels
         public void NewProject(object target)
         {
             DialogResult dialogResult = MessageBox.Show("Are you sure you want to start a new project? This will discard any unsaved changes.", "New Project", System.Windows.Forms.MessageBoxButtons.YesNo);
-            if (dialogResult == DialogResult.Yes)
-            {
-                Project = new GameProject();
-            }
+            if (dialogResult != DialogResult.Yes) return;
+            
+            Project = new GameProject();
+
+            Objects.Project = Project;
+            Levels.ObjectsVM = Objects;
         }
+
         public void CompileProject(object target)
         {
             projectAS3Compiler.CompileProject(Project);
