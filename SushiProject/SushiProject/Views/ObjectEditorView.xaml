@@ -59,7 +59,7 @@
         <DockPanel>
             <TextBlock DockPanel.Dock="Top" Text="Behaviors"/>
             <DockPanel DockPanel.Dock="Bottom">
-                <Button DockPanel.Dock="Left" Content="Add Behavior" Width="128" Height="32"/>
+                <Button DockPanel.Dock="Left" Content="Add Behavior" Width="128" Height="32" Click="Button_Click"/>
                 <Button DockPanel.Dock="Left" Content="Delete Behavior" Width="128" Height="32"/>
                 <Image/>
             </DockPanel>

@@ -15,6 +15,7 @@ namespace SushiProject.Utilities
     {
         public ProjectXMLWriter()
         {
+
         }
 
         public string AskForSavePath(string defaultFilename)
