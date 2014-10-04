@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace SushiProject.Model
 {
-    class Level
+    public class Level
     {
 
 

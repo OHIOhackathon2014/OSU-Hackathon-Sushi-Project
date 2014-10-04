@@ -6,11 +6,11 @@ using System.Threading.Tasks;
 
 namespace SushiProject.Model
 {
-    class Image
+    public class Image
     {
         public string FilePath { get; set; }
 
-        Image(string filePath)
+        public Image(string filePath)
         {
             FilePath = filePath;
         }
