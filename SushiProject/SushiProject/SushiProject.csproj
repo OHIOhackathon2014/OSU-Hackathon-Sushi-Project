@@ -127,8 +127,11 @@
     <Compile Include="Views\SoundsView.xaml.cs">
       <DependentUpon>SoundsView.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Views\SoundView.xaml.cs">
-      <DependentUpon>SoundView.xaml</DependentUpon>
+    <Compile Include="Views\SoundEditorView.xaml.cs">
+      <DependentUpon>SoundEditorView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\SpriteEditorView.xaml.cs">
+      <DependentUpon>SpriteEditorView.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\SpritesView.xaml.cs">
       <DependentUpon>SpritesView.xaml</DependentUpon>
@@ -177,7 +180,11 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Views\SoundView.xaml">
+    <Page Include="Views\SoundEditorView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\SpriteEditorView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

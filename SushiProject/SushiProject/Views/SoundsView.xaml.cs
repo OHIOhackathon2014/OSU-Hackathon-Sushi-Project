@@ -27,7 +27,7 @@ namespace SushiProject.Views
 
         protected void HandleDoubleClick(object sender, MouseButtonEventArgs e)
         {
-            var window = new ObjectEditorView();
+            var window = new SoundView();
             window.Owner = Window.GetWindow(this);
             window.DataContext = (sender as FrameworkElement).DataContext;
             window.Show();
