@@ -7,6 +7,7 @@ using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace SushiProject.ViewModels
 {
@@ -20,6 +21,12 @@ namespace SushiProject.ViewModels
         {
             get { return project; }
             set { project = value;
+                Objects.Project = Project;
+                Levels.Project = Project;
+                Sprites.Project = Project;
+                Sounds.Project = Project;
+                Settings.Project = Project;
+
                 OnPropertyChanged("Project");
             }
         }
@@ -37,9 +44,16 @@ namespace SushiProject.ViewModels
             Sprites = new SpritesListViewModel();
             Sounds = new SoundsListViewModel();
             Settings = new SettingsViewModel();
+            NewCommand = new Command(NewProject, AlwaysTrue);
             CompileCommand = new Command(CompileProject, AlwaysTrue);
             SaveCommand = new Command(SaveProject, AlwaysTrue);
             OpenCommand = new Command(OpenProject, AlwaysTrue);
+        }
+
+        public Command NewCommand
+        {
+            get;
+            private set;
         }
 
         public Command CompileCommand
@@ -60,6 +74,14 @@ namespace SushiProject.ViewModels
             private set;
         }
 
+        public void NewProject(object target)
+        {
+            DialogResult dialogResult = MessageBox.Show("Are you sure you want to start a new project? This will discard any unsaved changes.", "New Project", System.Windows.Forms.MessageBoxButtons.YesNo);
+            if (dialogResult == DialogResult.Yes)
+            {
+                Project = new GameProject();
+            }
+        }
         public void CompileProject(object target)
         {
             projectAS3Compiler.CompileProject(Project);
@@ -72,7 +94,7 @@ namespace SushiProject.ViewModels
         {
             projectXMLWriter.SaveProject(Project);
         }
-
+        
         public bool AlwaysTrue(object target) { return true; }
 
         public event PropertyChangedEventHandler PropertyChanged;

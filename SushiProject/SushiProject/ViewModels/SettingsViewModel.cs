@@ -1,4 +1,5 @@
-﻿using System;
+﻿using SushiProject.Model;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
@@ -10,6 +11,8 @@ namespace SushiProject.ViewModels
 {
     public class SettingsViewModel : INotifyPropertyChanged
     {
+        public GameProject Project { get; set; }
+
         private int frameRate;
         public int FrameRate
         {
@@ -20,7 +23,6 @@ namespace SushiProject.ViewModels
         }
 
         private Color backgroundColor;
-
         public Color BackgroundColor
         {
             get { return backgroundColor; }

@@ -36,6 +36,7 @@
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Data" />
+    <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml" />
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Core" />
@@ -80,15 +81,10 @@
     <Compile Include="Model\GameSettings.cs" />
     <Compile Include="Model\Image.cs" />
     <Compile Include="Model\Level.cs" />
+    <Compile Include="Model\LevelObject.cs" />
+    <Compile Include="Model\Logic\Method.cs" />
     <Compile Include="Model\Logic\Behavior.cs" />
-    <Compile Include="Model\Logic\Conditional.cs" />
-    <Compile Include="Model\Logic\LogicAnd.cs" />
-    <Compile Include="Model\Logic\LogicElse.cs" />
-    <Compile Include="Model\Logic\LogicIf.cs" />
-    <Compile Include="Model\Logic\LogicOr.cs" />
-    <Compile Include="Model\Logic\LogicWhile.cs" />
     <Compile Include="Model\Prefab.cs" />
-    <Compile Include="Model\PrefabInstance.cs" />
     <Compile Include="Utilities\ProjectAS3Compiler.cs" />
     <Compile Include="Utilities\ProjectXMLWriter.cs" />
     <Compile Include="ViewModels\AvailableMethodsViewModel.cs" />
@@ -104,6 +100,9 @@
     <Compile Include="ViewModels\LevelViewModel.cs" />
     <Compile Include="ViewModels\ObjectViewModel.cs" />
     <Compile Include="ViewModels\SettingsViewModel.cs" />
+    <Compile Include="Views\BehaviorSelectView.xaml.cs">
+      <DependentUpon>BehaviorSelectView.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\LevelEditorView.xaml.cs">
       <DependentUpon>LevelEditorView.xaml</DependentUpon>
     </Compile>
@@ -137,6 +136,10 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="Views\BehaviorSelectView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Views\LevelEditorView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>

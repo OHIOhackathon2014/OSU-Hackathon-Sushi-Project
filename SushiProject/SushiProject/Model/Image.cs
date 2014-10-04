@@ -8,11 +8,13 @@ namespace SushiProject.Model
 {
     public class Image
     {
+        public string Name { get; set; }
         public string FilePath { get; set; }
 
-        public Image(string filePath)
+        public Image(string filePath, string name)
         {
             FilePath = filePath;
+            Name = name;
         }
 
     }

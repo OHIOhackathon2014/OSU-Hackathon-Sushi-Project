@@ -1,4 +1,5 @@
-﻿using System;
+﻿using SushiProject.Model;
+using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
@@ -15,6 +16,8 @@ namespace SushiProject.ViewModels
             get;
             set;
         }
+
+        public GameProject Project { get; set; }
 
         public ObjectsListViewModel()
         {

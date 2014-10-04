@@ -12,7 +12,7 @@ namespace SushiProject.ViewModels
 {
     public class ObjectViewModel : INotifyPropertyChanged
     {
-        public Prefab prefab { get; set; }
+        public GameObject prefab { get; set; }
 
         private string name;
         public string Name
@@ -34,7 +34,7 @@ namespace SushiProject.ViewModels
             Behaviors.Add(new BehaviorViewModel());
             AvailableMethods = new AvailableMethodsViewModel();
 
-            prefab = new Prefab();
+            prefab = new GameObject();
 
             SaveCommand = new Command(Save, AlwaysTrue);
         }
