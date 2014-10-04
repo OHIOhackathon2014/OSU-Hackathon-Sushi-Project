@@ -1,4 +1,5 @@
-﻿using SushiProject.Model;
+﻿using SushiProject.Commands;
+using SushiProject.Model;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -17,19 +18,48 @@ namespace SushiProject.ViewModels
             set;
         }
 
-        public GameProject Project { get; set; }
+        private GameProject project;
+        public GameProject Project {
+            get
+            {
+                return project;
+            }
+            set
+            {
+                project = value;
+                foreach (GameObject go in Project.Objects)
+                {
+                    ObjectViewModel ovm = new ObjectViewModel();
+                    ovm.Name = go.Name;
+                    ObjectCollection.Add(ovm);
+                }
+            }
+        }
 
         public ObjectsListViewModel()
         {
             ObjectCollection = new ObservableCollection<ObjectViewModel>();
-            ObjectViewModel ovm = new ObjectViewModel();
-            ovm.Name = "ball";
-            ObjectCollection.Add(ovm);
-            ObjectViewModel ovm2 = new ObjectViewModel();
-            ovm2.Name = "block";
-            ObjectCollection.Add(ovm2);
+            NewCommand = new Command(NewGameObject, AlwaysTrue);
         }
 
+        public Command NewCommand
+        {
+            get;
+            private set;
+        }
+
+        public void NewGameObject(object target)
+        {
+            ObjectViewModel ovm = new ObjectViewModel();
+            ovm.Name = "default";
+            GameObject go = new GameObject();
+            go.Name = ovm.Name;
+            Project.Objects.Add(go);
+            ObjectCollection.Add(ovm);
+        }
+
+        public bool AlwaysTrue(object target) { return true; }
+        
         public event PropertyChangedEventHandler PropertyChanged;
         protected void OnPropertyChanged(string name)
         {

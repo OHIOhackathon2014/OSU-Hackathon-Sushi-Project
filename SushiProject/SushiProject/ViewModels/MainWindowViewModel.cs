@@ -40,6 +40,7 @@ namespace SushiProject.ViewModels
         public MainWindowViewModel()
         {
             Objects = new ObjectsListViewModel();
+            Objects.Project = project;
             Levels = new LevelsListViewModel();
             Sprites = new SpritesListViewModel();
             Sounds = new SoundsListViewModel();
