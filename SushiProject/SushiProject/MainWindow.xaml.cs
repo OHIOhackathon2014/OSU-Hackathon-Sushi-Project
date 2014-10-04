@@ -34,7 +34,7 @@ namespace SushiProject
         {
             if (settingsView == null) settingsView = new SettingsView();
             settingsView.Owner = Window.GetWindow(this);
-            settingsView.DataContext= ((MainWindowViewModel)DataContext).Settings;
+            settingsView.DataContext = ((MainWindowViewModel)DataContext).Settings;
             settingsView.Show();
         }
     }
