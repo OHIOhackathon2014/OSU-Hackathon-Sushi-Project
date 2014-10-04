@@ -18,7 +18,13 @@ namespace SushiProject.ViewModels
 
         public ObjectsListViewModel()
         {
-
+            ObjectCollection = new ObservableCollection<ObjectViewModel>();
+            ObjectViewModel ovm = new ObjectViewModel();
+            ovm.Name = "ball";
+            ObjectCollection.Add(ovm);
+            ObjectViewModel ovm2 = new ObjectViewModel();
+            ovm2.Name = "block";
+            ObjectCollection.Add(ovm2);
         }
 
         public event PropertyChangedEventHandler PropertyChanged;
