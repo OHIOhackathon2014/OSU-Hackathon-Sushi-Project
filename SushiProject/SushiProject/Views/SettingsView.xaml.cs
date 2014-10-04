@@ -31,6 +31,8 @@ namespace SushiProject.Views
             SVM.FrameRate = Convert.ToInt32(FPS.Text);
             SVM.ScreenHeight = Convert.ToInt32(ScreenHeight.Text);
             SVM.ScreenWidth = Convert.ToInt32(ScreenWidth.Text);
+            SVM.BackgroundColor = BCP.SelectedColor;
+
         }
 
         private void Button_Click_1(object sender, RoutedEventArgs e)

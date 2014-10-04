@@ -11,7 +11,6 @@ namespace SushiProject.ViewModels
 {
     public class SettingsViewModel : INotifyPropertyChanged
     {
-<<<<<<< HEAD
         private int projectTitle;
         public int ProjectTitle
         {
@@ -41,10 +40,7 @@ namespace SushiProject.ViewModels
                 OnPropertyChanged("ScreenWidth");
             }
         }
-=======
         public GameProject Project { get; set; }
->>>>>>> 2c5d88e4fc1100f764913d2cacba5dc1d1d50629
-
         private int frameRate;
         public int FrameRate
         {
