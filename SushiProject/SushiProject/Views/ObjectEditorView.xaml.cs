@@ -28,5 +28,13 @@ namespace SushiProject.Views
         {
 
         }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            BehaviorSelectView window = new BehaviorSelectView();
+            window.Owner = Window.GetWindow(this);
+            window.DataContext = DataContext;
+            window.Show();
+        }
     }
 }

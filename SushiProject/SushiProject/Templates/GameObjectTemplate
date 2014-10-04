@@ -1,0 +1,21 @@
+package 
+{
+	import flash.display.Sprite;
+	import flash.events.Event;
+	
+	public class !NAME! extends Sprite 
+	{
+		public function PrefabricatedGameObjectNameHere(x:Number, y:Number):void 
+		{
+			this.x = x;
+			this.y = y;
+			
+			addEventListener(Event.ADDED_TO_STAGE, AddEventModel);
+		}
+		
+		private function AddEventModel(e:Event):void 
+		{
+			removeEventListener(Event.ADDED_TO_STAGE, init);
+		}
+	}
+}

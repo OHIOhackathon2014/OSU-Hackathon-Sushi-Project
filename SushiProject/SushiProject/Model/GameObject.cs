@@ -9,7 +9,11 @@ namespace SushiProject.Model
 {
     public class GameObject
     {
-        public string Name { get; set; }
+        public string Name { 
+            get { return name; }
+            set { name = value.Replace(" ", ""); }
+        }
+        private string name;
 
         public Dictionary<string, float> Variables { get; set; }
         public Dictionary<string, Behavior> Behaviors { get; set; }
