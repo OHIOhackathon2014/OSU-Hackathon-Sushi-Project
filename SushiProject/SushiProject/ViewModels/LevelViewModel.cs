@@ -1,4 +1,6 @@
-﻿using System;
+﻿using SushiProject.Commands;
+using SushiProject.Model;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
@@ -9,6 +11,8 @@ namespace SushiProject.ViewModels
 {
     public class LevelViewModel : INotifyPropertyChanged
     {
+        public Level level { get; set; }
+
         private string name;
         public string Name
         {
@@ -20,10 +24,27 @@ namespace SushiProject.ViewModels
             }
         }
 
+
         public LevelViewModel()
         {
+            level = new Level();
 
+            SaveCommand = new Command(Save, AlwaysTrue);
         }
+
+        public Command SaveCommand
+        {
+            get;
+            private set;
+        }
+
+        public void Save(object target)
+        {
+            // Save the view model data to the model
+            level.Name = Name;
+        }
+
+        public bool AlwaysTrue(object target) { return true; }
 
         public event PropertyChangedEventHandler PropertyChanged;
         protected void OnPropertyChanged(string name)

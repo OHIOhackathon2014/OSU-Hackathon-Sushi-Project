@@ -1,4 +1,5 @@
-﻿using SushiProject.Model;
+﻿using SushiProject.Commands;
+using SushiProject.Model;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -17,15 +18,49 @@ namespace SushiProject.ViewModels
             set;
         }
 
-        public GameProject Project { get; set; }
+        private GameProject project;
+        public GameProject Project
+        {
+            get
+            {
+                return project;
+            }
+            set
+            {
+                project = value;
+                foreach (Level level in Project.Levels)
+                {
+                    LevelViewModel lvm = new LevelViewModel();
+                    lvm.Name = level.Name;
+                    LevelCollection.Add(lvm);
+                }
+            }
+        }
 
         public LevelsListViewModel()
         {
             LevelCollection = new ObservableCollection<LevelViewModel>();
+            NewCommand = new Command(NewLevel, AlwaysTrue);
+        }
+
+        public Command NewCommand
+        {
+            get;
+            private set;
+        }
+
+        public void NewLevel(object target)
+        {
             LevelViewModel lvm = new LevelViewModel();
-            lvm.Name = "level 1";
+            lvm.Name = "Level";
+            Level level = new Level();
+            level.Name = lvm.Name;
+            Project.Levels.Add(level);
             LevelCollection.Add(lvm);
         }
+
+        public bool AlwaysTrue(object target) { return true; }
+        
 
         public event PropertyChangedEventHandler PropertyChanged;
         protected void OnPropertyChanged(string name)
