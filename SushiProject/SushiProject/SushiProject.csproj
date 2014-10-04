@@ -56,6 +56,23 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Commands\DelegateCommand.cs" />
+    <Compile Include="Model\Animation.cs" />
+    <Compile Include="Model\GameProject.cs" />
+    <Compile Include="Model\GameSettings.cs" />
+    <Compile Include="Model\Image.cs" />
+    <Compile Include="Model\Level.cs" />
+    <Compile Include="Model\Logic\Behavior.cs" />
+    <Compile Include="Model\Logic\Conditional.cs" />
+    <Compile Include="Model\Logic\LogicAnd.cs" />
+    <Compile Include="Model\Logic\LogicElse.cs" />
+    <Compile Include="Model\Logic\LogicIf.cs" />
+    <Compile Include="Model\Logic\LogicOr.cs" />
+    <Compile Include="Model\Logic\LogicWhile.cs" />
+    <Compile Include="Model\Prefab.cs" />
+    <Compile Include="Model\PrefabInstance.cs" />
+    <Compile Include="Utilities\ProjectAS3Compiler.cs" />
+    <Compile Include="Utilities\ProjectXMLWriter.cs" />
     <Compile Include="ViewModels\LevelsListViewModel.cs" />
     <Compile Include="ViewModels\MainWindowViewModel.cs" />
     <Compile Include="ViewModels\ObjectsListViewModel.cs" />
