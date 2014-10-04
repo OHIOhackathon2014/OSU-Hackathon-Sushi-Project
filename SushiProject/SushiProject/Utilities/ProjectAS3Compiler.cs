@@ -19,6 +19,9 @@ namespace SushiProject.Utilities
 
         public void CompileProject(GameProject gameProject)
         {
+            var writer = new SushiProject.Utilities.ProjectAS3Writer();
+            writer.WriteASFiles(gameProject);
+
             System.Diagnostics.Process process = new System.Diagnostics.Process();
             System.Diagnostics.ProcessStartInfo startInfo = new System.Diagnostics.ProcessStartInfo();
             startInfo.WindowStyle = System.Diagnostics.ProcessWindowStyle.Hidden;
@@ -26,8 +29,6 @@ namespace SushiProject.Utilities
             startInfo.Arguments = String.Format("/C C:\\flex_sdk_4.6\\bin\\mxmlc.exe C:\\game\\Main.as -output C:\\game\\game.swf");
             process.StartInfo = startInfo;
             process.Start();
-
-
         }
     }
 }

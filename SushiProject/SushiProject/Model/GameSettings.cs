@@ -20,9 +20,6 @@ namespace SushiProject.Model
             ScreenHeight = 480;
             FrameRate = 60;
             BackgroundColor = Colors.CornflowerBlue;
-
-            var writer = new SushiProject.Utilities.ProjectAS3Writer();
-            writer.WriteMain(this);
         }
 
         

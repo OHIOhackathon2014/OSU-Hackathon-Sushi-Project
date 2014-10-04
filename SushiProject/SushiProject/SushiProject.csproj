@@ -217,6 +217,8 @@
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
     </None>
     <AppDesigner Include="Properties\" />
+    <None Include="Templates\GameObjectTemplate" />
+    <None Include="Templates\MainTemplate" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
@@ -232,6 +234,9 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Assets\Methods\tile.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Templates\AssetsTemplate" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

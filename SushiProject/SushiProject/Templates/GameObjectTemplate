@@ -5,7 +5,7 @@ package
 	
 	public class !NAME! extends Sprite 
 	{
-		public function PrefabricatedGameObjectNameHere(x:Number, y:Number):void 
+		public function !NAME!(x:Number, y:Number):void 
 		{
 			this.x = x;
 			this.y = y;

@@ -7,6 +7,7 @@ using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace SushiProject.ViewModels
 {
@@ -36,10 +37,16 @@ namespace SushiProject.ViewModels
             DialogResult dialogResult = MessageBox.Show("Do you want to make a new sound file?", "New Project", System.Windows.Forms.MessageBoxButtons.YesNo);
             if (dialogResult == DialogResult.Yes)
             {
-                NewSoundFile = new Sound();
+                //NewSoundFile = new Sound();
             }
         }
 
+        public Command NewSoundCommand
+        {
+            get;
+            private set;
+        }
+        public bool AlwaysTrue(object target) { return true; }
 
         public event PropertyChangedEventHandler PropertyChanged;
         protected void OnPropertyChanged(string name)

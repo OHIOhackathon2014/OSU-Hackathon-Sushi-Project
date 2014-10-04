@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using SushiProject.Model;
 using System.IO;
+using System.Collections.ObjectModel;
 
 namespace SushiProject.Utilities
 {
@@ -14,7 +15,18 @@ namespace SushiProject.Utilities
 
         public ProjectAS3Writer() { }
 
-        public void WriteMain(GameSettings settings) {
+        public void WriteASFiles(GameProject project) {
+
+            if (!Directory.Exists(path))
+                Directory.CreateDirectory(path);
+
+            WriteMain(project.Settings);
+            WriteGameObjects(project.Objects);
+            WriteAssets(project);
+
+        }
+
+        private void WriteMain(GameSettings settings) {
             string mainText = System.IO.File.ReadAllText("../../Templates/MainTemplate");
 
             string bgcolorstring = settings.BackgroundColor.R.ToString("X") + settings.BackgroundColor.G.ToString("X") + settings.BackgroundColor.B.ToString("X");
@@ -25,15 +37,10 @@ namespace SushiProject.Utilities
 
             // WriteAllText creates a file, writes the specified string to the file, 
             // and then closes the file.
-
-
-            if (!Directory.Exists(path))
-                Directory.CreateDirectory(path);
-
             System.IO.File.WriteAllText(path + "Main.as", mainText);
         }
 
-        public void WriteGameObjects(List<GameObject> gameObjects)
+        private void WriteGameObjects(Collection<GameObject> gameObjects)
         {
             string templateText = System.IO.File.ReadAllText("../../Templates/GameObjectTemplate");
 
@@ -42,6 +49,23 @@ namespace SushiProject.Utilities
                 string gameObjectText = templateText.Replace("!NAME!", go.Name);
                 System.IO.File.WriteAllText(path + go.Name + ".as", gameObjectText);
             }
+        }
+
+        private void WriteAssets(GameProject gameProject)
+        {
+            string templateText = System.IO.File.ReadAllText("../../Templates/AssetsTemplate");
+            string assetsText = "";
+            foreach (Image image in gameProject.Images)
+            {
+                assetsText += "[Embed src=\"" + image.FilePath + "\"]\nstatic public var " + image.Name + ":Class;\n";
+            }
+            /*
+            foreach (Sound sound in gameProject.Sounds)
+            {
+                assetsText += "[Embed src=\"" + sound.FilePath + "\"]\nstatic public var " + sound.Name + ":Class;\n";
+            }
+            */
+            System.IO.File.WriteAllText(path + "Assets.as", templateText.Replace("!ASSETLIST!", assetsText));
         }
     }
 }
