@@ -25,5 +25,15 @@ namespace SushiProject.Utilities
             System.IO.File.WriteAllText(@"C:\game\Main.as", mainText);
         }
 
+        public void WriteGameObjects(List<GameObject> gameObjects)
+        {
+            string templateText = System.IO.File.ReadAllText(@"C:\game\MainTemplate");
+
+            foreach (GameObject go in gameObjects)
+            {
+                string gameObjectText = templateText.Replace("!NAME!", go.Name);
+                System.IO.File.WriteAllText(@"C:\game\" + go.Name + ".as", gameObjectText);
+            }
+        }
     }
 }
