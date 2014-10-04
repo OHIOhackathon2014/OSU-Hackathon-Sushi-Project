@@ -12,10 +12,29 @@ namespace SushiProject.ViewModels
 {
     public class LevelsListViewModel : INotifyPropertyChanged
     {
+        private ObservableCollection<LevelViewModel> levelCollection = new ObservableCollection<LevelViewModel>();
         public ObservableCollection<LevelViewModel> LevelCollection
         {
-            get;
-            set;
+            get {
+                return levelCollection;
+            }
+            set {
+                levelCollection = value;
+                OnPropertyChanged("LevelCollection");
+            }
+        }
+        private ObjectsListViewModel objectsVM;
+        public ObjectsListViewModel ObjectsVM
+        {
+            get { return objectsVM; }
+            set {
+                objectsVM = value;
+                OnPropertyChanged("ObjectsVM");
+                foreach (LevelViewModel lvm in LevelCollection)
+                {
+                    lvm.ObjectsVM = objectsVM;
+                }
+            }
         }
 
         private GameProject project;
@@ -31,6 +50,7 @@ namespace SushiProject.ViewModels
                 foreach (Level level in Project.Levels)
                 {
                     LevelViewModel lvm = new LevelViewModel();
+                    lvm.ObjectsVM = this.ObjectsVM;
                     lvm.Name = level.Name;
                     LevelCollection.Add(lvm);
                 }
@@ -40,6 +60,11 @@ namespace SushiProject.ViewModels
         public LevelsListViewModel()
         {
             LevelCollection = new ObservableCollection<LevelViewModel>();
+            LevelViewModel lvm = new LevelViewModel();
+            lvm.level = new Level();
+            lvm.ObjectsVM = ObjectsVM;
+            lvm.Name = "level 1";
+            LevelCollection.Add(lvm);
             NewCommand = new Command(NewLevel, AlwaysTrue);
         }
 

@@ -90,6 +90,7 @@
     <Compile Include="Utilities\ProjectXMLWriter.cs" />
     <Compile Include="Utility.cs" />
     <Compile Include="ViewModels\AvailableMethodsViewModel.cs" />
+    <Compile Include="ViewModels\LevelObjectViewModel.cs" />
     <Compile Include="ViewModels\MethodViewModel.cs" />
     <Compile Include="ViewModels\BehaviorViewModel.cs" />
     <Compile Include="ViewModels\SpritesListViewModel.cs" />

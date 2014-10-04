@@ -42,6 +42,7 @@ namespace SushiProject.ViewModels
             Objects = new ObjectsListViewModel();
             Objects.Project = project;
             Levels = new LevelsListViewModel();
+            Levels.ObjectsVM = Objects;
             Sprites = new SpritesListViewModel();
             Sounds = new SoundsListViewModel();
             Settings = new SettingsViewModel();

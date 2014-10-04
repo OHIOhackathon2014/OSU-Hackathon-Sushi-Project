@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 
 namespace SushiProject.ViewModels
 {
-    public class LevelViewModel : INotifyPropertyChanged
+    public class LevelObjectViewModel : INotifyPropertyChanged
     {
         public Level level { get; set; }
 
@@ -26,38 +26,9 @@ namespace SushiProject.ViewModels
             }
         }
 
-        public ObservableCollection<LevelObjectViewModel> LevelObjects{ get; set; }
-        private ObjectsListViewModel objectsVM;
-	    public ObjectsListViewModel ObjectsVM
-	    {
-		    get { return objectsVM;}
-		    set {
-                objectsVM = value;
-                OnPropertyChanged("ObjectsVM");
-            }
-	    }
-	
-        public LevelViewModel()
+        public LevelObjectViewModel()
         {
-            level = new Level();
-            LevelObjects = new ObservableCollection<LevelObjectViewModel>();
-
-            SaveCommand = new Command(Save, AlwaysTrue);
         }
-
-        public Command SaveCommand
-        {
-            get;
-            private set;
-        }
-
-        public void Save(object target)
-        {
-            // Save the view model data to the model
-            level.Name = Name;
-        }
-
-        public bool AlwaysTrue(object target) { return true; }
 
         public event PropertyChangedEventHandler PropertyChanged;
         protected void OnPropertyChanged(string name)

@@ -4,15 +4,31 @@
         xmlns:wb="WriteableBitmapEx.Wpf"
         Title="Level Editor" Width="800" Height="600">
     <DockPanel>
-        
         <StackPanel DockPanel.Dock="Bottom" HorizontalAlignment="Right">
             <Button Content="Save"
                     Width="80" Height="32" />
         </StackPanel>
         <DockPanel DockPanel.Dock="Left" Width="192">
-            <ListBox>
+            <ListBox DockPanel.Dock="Top"
+                     Height="192"
+                     DataContext = "{Binding ObjectsVM}"
+                     ItemsSource = "{Binding ObjectCollection, Mode=TwoWay}">
+                <ListBox.ItemsPanel>
+                    <ItemsPanelTemplate>
+                        <WrapPanel/>
+                    </ItemsPanelTemplate>
+                </ListBox.ItemsPanel>
+                <ListBox.ItemTemplate>
+                    <DataTemplate>
+                        <StackPanel Orientation="Vertical" HorizontalAlignment="Center">
+                            <Image Width="48" Height="48" />
+                            <TextBlock Text="{Binding Name}" HorizontalAlignment="Center"/>
+                        </StackPanel>
+                    </DataTemplate>
+                </ListBox.ItemTemplate>
             </ListBox>
-            <ListBox>
+            <ListBox ItemsSource="{Binding LevelObjects}">
+                
             </ListBox>
         </DockPanel>
         <DockPanel DockPanel.Dock="Right">
