@@ -47,6 +47,7 @@ namespace SushiProject.ViewModels
             set
             {
                 project = value;
+                LevelCollection = new ObservableCollection<LevelViewModel>();
                 foreach (Level level in Project.Levels)
                 {
                     LevelViewModel lvm = new LevelViewModel();
