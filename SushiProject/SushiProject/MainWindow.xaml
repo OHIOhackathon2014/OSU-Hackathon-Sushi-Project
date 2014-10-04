@@ -3,7 +3,7 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:uc="clr-namespace:SushiProject.Views"
         xmlns:vm="clr-namespace:SushiProject.ViewModels"
-        Title="Sushi Project" Height="600" Width="800">
+        Title="Sushi Project" Width="800" Height="600">
     <Window.DataContext>
         <vm:MainWindowViewModel />
     </Window.DataContext>
@@ -17,7 +17,7 @@
                 <MenuItem Header="Preferences..."/>
             </MenuItem>
             <MenuItem Header="Project">
-                <MenuItem Header="Settings" />
+                <MenuItem Header="Settings" Click="ProjectSettings_Click" />
             </MenuItem>
             <MenuItem Header="Compile">
                 <MenuItem Header="Build and Run" Command="{Binding CompileCommand}" />
@@ -28,18 +28,24 @@
         </Menu>
         <TabControl>
             <TabItem Header="Objects">
-                <uc:ObjectsView>
+                <uc:ObjectsView DataContext="{Binding Objects}">
 
                 </uc:ObjectsView>
             </TabItem>
             <TabItem Header="Levels">
-                <uc:LevelsView>
+                <uc:LevelsView DataContext="{Binding Levels}">
                     
                 </uc:LevelsView>
             </TabItem>
             <TabItem Header="Sprites">
+                <uc:SpritesView DataContext="{Binding Sprites}">
+
+                </uc:SpritesView>
             </TabItem>
             <TabItem Header="Sounds">
+                <uc:SoundsView DataContext="{Binding Sounds}">
+
+                </uc:SoundsView>
             </TabItem>
         </TabControl>
     </DockPanel>

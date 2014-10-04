@@ -3,7 +3,34 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008">
-    <Grid>
-            
-    </Grid>
+    <UserControl.Resources>
+        <Style x:Key="itemstyle" TargetType="{x:Type ListBoxItem}">
+            <EventSetter Event="MouseDoubleClick" Handler="HandleDoubleClick" />
+        </Style>
+    </UserControl.Resources>
+    <DockPanel>
+        <StackPanel DockPanel.Dock ="Bottom" Orientation="Horizontal" HorizontalAlignment="Center">
+            <Button Height="64" Width="64" Content="New" />
+            <Button Height="64" Width="64" Content="Open" />
+            <Button Height="64" Width="64" Content="Rename" />
+            <Button Height="64" Width="64" Content="Delete" />
+        </StackPanel>
+        <ListBox ItemsSource="{Binding SpriteCollection}" ItemContainerStyle="{StaticResource itemstyle}">
+            <ListBox.ItemsPanel>
+                <ItemsPanelTemplate>
+                    <WrapPanel/>
+                </ItemsPanelTemplate>
+            </ListBox.ItemsPanel>
+            <ListBox.ItemTemplate>
+                <DataTemplate>
+                    <DockPanel Width="64" Height="64">
+                        <TextBlock DockPanel.Dock="Bottom"
+                            Text="{Binding Path=Name}"
+                            HorizontalAlignment="Center"/>
+                        <Image Source="pack://application:,,,/Assets/ball.png" />
+                    </DockPanel>
+                </DataTemplate>
+            </ListBox.ItemTemplate>
+        </ListBox>
+    </DockPanel>
 </UserControl>

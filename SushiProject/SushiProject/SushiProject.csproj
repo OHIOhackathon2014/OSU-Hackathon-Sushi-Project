@@ -50,6 +50,24 @@
     <Reference Include="WriteableBitmapEx.Wpf">
       <HintPath>..\packages\WriteableBitmapEx.1.0.12.0\lib\net40\WriteableBitmapEx.Wpf.dll</HintPath>
     </Reference>
+    <Reference Include="Xceed.Wpf.AvalonDock">
+      <HintPath>..\packages\Extended.Wpf.Toolkit.2.2.1\lib\net40\Xceed.Wpf.AvalonDock.dll</HintPath>
+    </Reference>
+    <Reference Include="Xceed.Wpf.AvalonDock.Themes.Aero">
+      <HintPath>..\packages\Extended.Wpf.Toolkit.2.2.1\lib\net40\Xceed.Wpf.AvalonDock.Themes.Aero.dll</HintPath>
+    </Reference>
+    <Reference Include="Xceed.Wpf.AvalonDock.Themes.Metro">
+      <HintPath>..\packages\Extended.Wpf.Toolkit.2.2.1\lib\net40\Xceed.Wpf.AvalonDock.Themes.Metro.dll</HintPath>
+    </Reference>
+    <Reference Include="Xceed.Wpf.AvalonDock.Themes.VS2010">
+      <HintPath>..\packages\Extended.Wpf.Toolkit.2.2.1\lib\net40\Xceed.Wpf.AvalonDock.Themes.VS2010.dll</HintPath>
+    </Reference>
+    <Reference Include="Xceed.Wpf.DataGrid">
+      <HintPath>..\packages\Extended.Wpf.Toolkit.2.2.1\lib\net40\Xceed.Wpf.DataGrid.dll</HintPath>
+    </Reference>
+    <Reference Include="Xceed.Wpf.Toolkit">
+      <HintPath>..\packages\Extended.Wpf.Toolkit.2.2.1\lib\net40\Xceed.Wpf.Toolkit.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <ApplicationDefinition Include="App.xaml">
@@ -73,11 +91,16 @@
     <Compile Include="Model\PrefabInstance.cs" />
     <Compile Include="Utilities\ProjectAS3Compiler.cs" />
     <Compile Include="Utilities\ProjectXMLWriter.cs" />
+    <Compile Include="ViewModels\SpritesListViewModel.cs" />
+    <Compile Include="ViewModels\SoundsListViewModel.cs" />
     <Compile Include="ViewModels\LevelsListViewModel.cs" />
+    <Compile Include="ViewModels\SpriteViewModel.cs" />
+    <Compile Include="ViewModels\SoundViewModel.cs" />
     <Compile Include="ViewModels\MainWindowViewModel.cs" />
     <Compile Include="ViewModels\ObjectsListViewModel.cs" />
     <Compile Include="ViewModels\LevelViewModel.cs" />
     <Compile Include="ViewModels\ObjectViewModel.cs" />
+    <Compile Include="ViewModels\SettingsViewModel.cs" />
     <Compile Include="Views\LevelEditorView.xaml.cs">
       <DependentUpon>LevelEditorView.xaml</DependentUpon>
     </Compile>
@@ -89,6 +112,9 @@
     </Compile>
     <Compile Include="Views\ObjectsView.xaml.cs">
       <DependentUpon>ObjectsView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\SettingsView.xaml.cs">
+      <DependentUpon>SettingsView.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\SoundsView.xaml.cs">
       <DependentUpon>SoundsView.xaml</DependentUpon>
@@ -121,6 +147,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\ObjectsView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\SettingsView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -166,6 +196,9 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Assets\level.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Assets\speaker.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

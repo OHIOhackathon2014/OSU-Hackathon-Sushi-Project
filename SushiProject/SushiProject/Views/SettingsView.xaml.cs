@@ -10,27 +10,18 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
 using System.Windows.Shapes;
 
 namespace SushiProject.Views
 {
     /// <summary>
-    /// Interaction logic for SoundsView.xaml
+    /// Interaction logic for SettingsView.xaml
     /// </summary>
-    public partial class SoundsView : UserControl
+    public partial class SettingsView : Window
     {
-        public SoundsView()
+        public SettingsView()
         {
             InitializeComponent();
-        }
-
-        protected void HandleDoubleClick(object sender, MouseButtonEventArgs e)
-        {
-            var window = new ObjectEditorView();
-            window.Owner = Window.GetWindow(this);
-            window.DataContext = (sender as FrameworkElement).DataContext;
-            window.Show();
         }
     }
 }

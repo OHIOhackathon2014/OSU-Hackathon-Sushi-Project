@@ -1,4 +1,6 @@
-﻿using System;
+﻿using SushiProject.ViewModels;
+using SushiProject.Views;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -20,9 +22,20 @@ namespace SushiProject
     /// </summary>
     public partial class MainWindow : Window
     {
+        private SettingsView settingsView;
+
         public MainWindow()
         {
             InitializeComponent();
+            SettingsView settingsView = new SettingsView();
+        }
+
+        private void ProjectSettings_Click(object sender, RoutedEventArgs e)
+        {
+            if (settingsView == null) settingsView = new SettingsView();
+            settingsView.Owner = Window.GetWindow(this);
+            settingsView.DataContext= ((MainWindowViewModel)DataContext).Settings;
+            settingsView.Show();
         }
     }
 }

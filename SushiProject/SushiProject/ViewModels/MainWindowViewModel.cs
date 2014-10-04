@@ -24,8 +24,19 @@ namespace SushiProject.ViewModels
             }
         }
 
+        public ObjectsListViewModel Objects { get; private set; }
+        public LevelsListViewModel Levels { get; private set; }
+        public SoundsListViewModel Sounds { get; private set; }
+        public SpritesListViewModel Sprites { get; private set; }
+        public SettingsViewModel Settings { get; private set; }
+
         public MainWindowViewModel()
         {
+            Objects = new ObjectsListViewModel();
+            Levels = new LevelsListViewModel();
+            Sprites = new SpritesListViewModel();
+            Sounds = new SoundsListViewModel();
+            Settings = new SettingsViewModel();
             CompileCommand = new Command(CompileProject, AlwaysTrue);
             SaveCommand = new Command(SaveProject, AlwaysTrue);
             OpenCommand = new Command(OpenProject, AlwaysTrue);
