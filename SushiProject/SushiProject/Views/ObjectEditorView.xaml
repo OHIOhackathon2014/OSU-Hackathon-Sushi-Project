@@ -17,22 +17,81 @@
                 </MenuItem>
             </MenuItem>
         </Menu>
-        <DockPanel DockPanel.Dock="Right" Width="160">
-            <Button DockPanel.Dock="Bottom">Save</Button>
+        <DockPanel DockPanel.Dock="Top" Height="64">
+            <Image DockPanel.Dock="Left" Width="64" Height="64" Source="pack://application:,,,/Assets/ball.png" ></Image>
+            <Grid DockPanel.Dock="Left">
+                <Grid.RowDefinitions>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
+                <TextBlock Grid.Row="0" Grid.Column="0" Text="Name"/>
+                <TextBox Grid.Row="0" Grid.Column="1" Width="128" Text="{Binding Name}"/>
+            </Grid>
             <Image></Image>
+        </DockPanel>
+
+        <DockPanel DockPanel.Dock="Right" Width="160">
+            <Button DockPanel.Dock="Bottom" Command="{Binding SaveCommand}">Save</Button>
+            <StackPanel Orientation="Vertical" DataContext="{Binding AvailableMethods}">
+                <TextBlock Text="Available Methods"/>
+                <ItemsControl ItemsSource="{Binding AvailableMethods}">
+                    <ItemsControl.ItemsPanel>
+                        <ItemsPanelTemplate>
+                            <WrapPanel />
+                        </ItemsPanelTemplate>
+                    </ItemsControl.ItemsPanel>
+                    <ItemsControl.ItemTemplate>
+                        <DataTemplate>
+                            <DockPanel>
+                                <TextBlock Text="Move" HorizontalAlignment="Center" DockPanel.Dock="Bottom"/>
+                                <Image Width="40" Height="40" Source="pack://application:,,,/Assets/ball.png" Margin="3"/>
+                            </DockPanel>
+                        </DataTemplate>
+                    </ItemsControl.ItemTemplate>
+                </ItemsControl>
+            </StackPanel>
         </DockPanel>
         <Image></Image>
         <DockPanel>
+            <TextBlock DockPanel.Dock="Top" Text="Behaviors"/>
             <ListBox>
-                <ListBoxItem>
-                    <DockPanel>
-                        <TextBlock>update</TextBlock>
-                        <ListBox>
-                            <Image></Image>
-                            <Image></Image>
-                        </ListBox>
-                    </DockPanel>
-                </ListBoxItem>
+                <ListBox ItemsSource="{Binding Behaviors}"
+                             HorizontalContentAlignment="Stretch">
+                    <ListBox.ItemTemplate>
+                        <DataTemplate>
+                            <DockPanel>
+                                <Grid DockPanel.Dock="Left"
+                                          Width="96">
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition/>
+                                        <RowDefinition/>
+                                    </Grid.RowDefinitions>
+                                    <TextBlock Grid.Row="0" Grid.Column="0" Text="{Binding Name}" />
+                                    <Image Grid.Row="1" Grid.Column="0" Width="48" Height="48" />
+                                </Grid>
+                                <ListBox ItemsSource="{Binding MethodCollection}">
+                                    <ListBox.ItemsPanel>
+                                        <ItemsPanelTemplate>
+                                            <WrapPanel/>
+                                        </ItemsPanelTemplate>
+                                    </ListBox.ItemsPanel>
+                                    <ListBox.ItemTemplate>
+                                        <DataTemplate>
+                                            <DockPanel>
+                                                <TextBlock DockPanel.Dock="Bottom" HorizontalAlignment="Center" Text="{Binding Name}" />
+                                                <Image Width="64" Height="64" Source="pack://application:,,,/Assets/ball.png" />
+                                            </DockPanel>
+                                        </DataTemplate>
+                                    </ListBox.ItemTemplate>
+                                </ListBox>
+                            </DockPanel>
+                        </DataTemplate>
+                    </ListBox.ItemTemplate>
+                </ListBox>
             </ListBox>
         </DockPanel>
     </DockPanel>

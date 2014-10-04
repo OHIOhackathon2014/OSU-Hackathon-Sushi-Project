@@ -91,6 +91,9 @@
     <Compile Include="Model\PrefabInstance.cs" />
     <Compile Include="Utilities\ProjectAS3Compiler.cs" />
     <Compile Include="Utilities\ProjectXMLWriter.cs" />
+    <Compile Include="ViewModels\AvailableMethodsViewModel.cs" />
+    <Compile Include="ViewModels\MethodViewModel.cs" />
+    <Compile Include="ViewModels\BehaviorViewModel.cs" />
     <Compile Include="ViewModels\SpritesListViewModel.cs" />
     <Compile Include="ViewModels\SoundsListViewModel.cs" />
     <Compile Include="ViewModels\LevelsListViewModel.cs" />
