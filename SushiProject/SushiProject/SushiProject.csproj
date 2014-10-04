@@ -127,6 +127,9 @@
     <Compile Include="Views\SoundsView.xaml.cs">
       <DependentUpon>SoundsView.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Views\SoundView.xaml.cs">
+      <DependentUpon>SoundView.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\SpritesView.xaml.cs">
       <DependentUpon>SpritesView.xaml</DependentUpon>
     </Compile>
@@ -171,6 +174,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\SoundsView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\SoundView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

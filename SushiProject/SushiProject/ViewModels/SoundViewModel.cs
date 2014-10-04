@@ -9,6 +9,19 @@ namespace SushiProject.ViewModels
 {
     public class SoundViewModel : INotifyPropertyChanged
     {
+
+
+        private string windowTitle;
+        public string WindowTitle
+        {
+            get { return windowTitle; }
+            set
+            {
+                windowTitle = value;
+                OnPropertyChanged("WindowTitle");
+            }
+        }
+
         private string name;
         public string Name
         {
@@ -16,6 +29,7 @@ namespace SushiProject.ViewModels
             set
             {
                 name = value;
+                WindowTitle = String.Format("Sound Editor - {0}", Name);
                 OnPropertyChanged("Name");
             }
         }
