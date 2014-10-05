@@ -47,8 +47,28 @@ namespace SushiProject.ViewModels
             get { return backgroundColor; }
             set { backgroundColor = value; OnPropertyChanged("BackgroundColor"); }
         }
-        
 
+        private double rotation = 0;
+        public double Rotation
+        {
+            get { return rotation; }
+            set { rotation = value; OnPropertyChanged("Rotation"); }
+        }
+
+        private double scaleX = 1;
+        public double ScaleX
+        {
+            get { return scaleX; }
+            set { scaleX = value; OnPropertyChanged("ScaleX"); }
+        }
+
+        private double scaleY = 1;
+        public double ScaleY
+        {
+            get { return scaleY; }
+            set { scaleY = value; OnPropertyChanged("ScaleY"); }
+        }
+        
         private int screenWidth = 640;
         public int ScreenWidth
         {
@@ -76,8 +96,28 @@ namespace SushiProject.ViewModels
             }
         }
 
-        public ObservableCollection<LevelObjectViewModel> LevelObjects{ get; set; }
+        private LevelObjectViewModel lastSelectedInstance;
+        public LevelObjectViewModel LastSelectedInstance
+        {
+            get { return lastSelectedInstance; }
+            set
+            {
+                lastSelectedInstance = value;
+                OnPropertyChanged("LastSelectedInstance");
+            }
+        }
 
+        private ObservableCollection<LevelObjectViewModel> levelObjects;
+        public ObservableCollection<LevelObjectViewModel> LevelObjects
+        {
+            get { return levelObjects; }
+            set
+            {
+                levelObjects = value;
+                OnPropertyChanged("LevelObjects");
+            }
+        }
+        
         private ObjectsListViewModel objectsVM;
 	    public ObjectsListViewModel ObjectsVM
 	    {
@@ -87,7 +127,7 @@ namespace SushiProject.ViewModels
                 OnPropertyChanged("ObjectsVM");
             }
 	    }
-	
+	    
         public LevelViewModel()
         {
             level = new Level();
@@ -118,6 +158,15 @@ namespace SushiProject.ViewModels
             }
         }
 
+        public void AddLevelObject(double x, double y, ObjectViewModel ovm)
+        {
+            LevelObjectViewModel lovm = new LevelObjectViewModel();
+            lovm.X = x;
+            lovm.Y = y;
+            lovm.GameObjectRefernce = ovm;
+            LevelObjects.Add(lovm);
+        }
+
         public Command SaveCommand
         {
             get;
@@ -128,6 +177,8 @@ namespace SushiProject.ViewModels
         {
             // Save the view model data to the model
             level.Name = Name;
+
+            ((System.Windows.Window)target).Close();
         }
 
         public bool AlwaysTrue(object target) { return true; }

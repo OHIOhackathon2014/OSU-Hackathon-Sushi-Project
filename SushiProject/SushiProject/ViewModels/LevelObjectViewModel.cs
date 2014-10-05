@@ -14,6 +14,15 @@ namespace SushiProject.ViewModels
     {
         public Level level { get; set; }
 
+        private ObjectViewModel gameObjectRefence;
+        public ObjectViewModel GameObjectRefernce
+        {
+            get { return gameObjectRefence; }
+            set { gameObjectRefence = value;
+            OnPropertyChanged("GameObjectRefernce");
+            }
+        }
+
         private string name;
         public string Name
         {
@@ -69,10 +78,10 @@ namespace SushiProject.ViewModels
                 OnPropertyChanged("Y");
             }
         }
-        
 
         public LevelObjectViewModel()
         {
+
         }
 
         public event PropertyChangedEventHandler PropertyChanged;

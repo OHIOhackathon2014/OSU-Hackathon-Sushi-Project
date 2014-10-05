@@ -8,7 +8,7 @@
             <Button Content="Play" Width="64" Height="64" Margin="8" />
             <Button Content="Stop" Width="64" Height="64" Margin="8" />
         </StackPanel>
-        <Button DockPanel.Dock="Bottom" Width="128" Height="48" Content="Save" HorizontalAlignment="Right" />
+        <Button DockPanel.Dock="Bottom" Width="128" Height="48" Content="Save" HorizontalAlignment="Right" Click="Button_Click" />
         <StackPanel DockPanel.Dock="Top">
             <Grid Margin="8">
                 <Grid.RowDefinitions>

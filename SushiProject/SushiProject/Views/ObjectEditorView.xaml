@@ -1,4 +1,5 @@
 ﻿<Window x:Class="SushiProject.Views.ObjectEditorView"
+        x:Name="ThisWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         MouseLeftButtonUp="Window_MouseLeftButtonUp_1"
@@ -46,9 +47,10 @@
 
         <DockPanel DockPanel.Dock="Right" Width="160">
             <Button DockPanel.Dock="Bottom"
-                    Command="{Binding SaveCommand}" 
-                    Content="Save" 
-                    Height="32" />
+                    Command="{Binding SaveCommand}"
+                    CommandParameter="{Binding ElementName=ThisWindow}"
+                    Content="Save"
+                    Height="32"/>
             <StackPanel Orientation="Vertical" DataContext="{Binding AvailableMethods}">
                 <TextBlock Text="Available Methods"/>
                 <ItemsControl ItemsSource="{Binding AvailableMethods}"

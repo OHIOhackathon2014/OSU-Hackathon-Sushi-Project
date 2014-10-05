@@ -63,7 +63,7 @@ namespace SushiProject.ViewModels
             gameObject = new GameObject();
 
             DeleteCommand = new Command(DeleteBehavior, AlwaysTrue);
-            SaveCommand = new Command(SaveBehavior, AlwaysTrue);
+            SaveCommand = new Command(SaveAndClose, AlwaysTrue);
             AddBehaviorCommand = new Command(AddBehavior, AlwaysTrue);
         }
 
@@ -71,10 +71,11 @@ namespace SushiProject.ViewModels
         public Command SaveCommand { get; private set; }
         public Command DeleteCommand { get; private set; }
 
-        public void SaveBehavior(object target)
+        public void SaveAndClose(object target)
         {
             // Save the view model data to the model
             gameObject.Name = Name;
+            ((System.Windows.Window)target).Close();
         }
 
         public void DeleteBehavior(object target)
