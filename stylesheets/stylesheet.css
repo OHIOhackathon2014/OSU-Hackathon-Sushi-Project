@@ -392,10 +392,12 @@ dl dt {
 }
 
 .screenshot{
-	margin-left: auto;
+	margin-left:auto;
 	margin-right:auto;
 	width:300px;
 	height:auto;
+	display: block;
+	position:center;
 }
 
 footer {
