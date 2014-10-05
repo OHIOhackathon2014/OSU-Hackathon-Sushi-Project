@@ -54,7 +54,11 @@ namespace SushiProject.Utilities
         {
             string fileName = System.IO.Path.GetFileName(sourceFile);
             string newFileName = Path + ProjectName + "\\" + ImagesDirectory + fileName;
-            System.IO.File.Copy(sourceFile, newFileName);
+            try
+            {
+                System.IO.File.Copy(sourceFile, newFileName);
+            }
+            catch { };
             return newFileName;
         }
 

@@ -30,6 +30,7 @@ namespace SushiProject.ViewModels
             set
             {
                 name = value;
+                sprite.Name = name;
                 WindowTitle = String.Format("Sprite Editor - {0}", name);
                 OnPropertyChanged("Name");
             }

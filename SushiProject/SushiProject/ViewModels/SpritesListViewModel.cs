@@ -58,6 +58,7 @@ namespace SushiProject.ViewModels
             svm.Name = "sprite";
             Sprite sprite = new Sprite();
             sprite.Name = svm.Name;
+            svm.Sprite = sprite;
             Project.Sprites.Add(sprite);
             SpriteCollection.Add(svm);
         }

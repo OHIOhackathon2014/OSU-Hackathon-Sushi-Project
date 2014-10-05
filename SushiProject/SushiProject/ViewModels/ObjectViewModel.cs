@@ -47,6 +47,7 @@ namespace SushiProject.ViewModels
             set
             {
                 name = value;
+                gameObject.Name = name;
                 WindowTitle = String.Format("Object Editor - {0}", name);
                 OnPropertyChanged("Name");
             }
