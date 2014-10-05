@@ -23,7 +23,7 @@ namespace SushiProject.ViewModels
             set { project = value;
                 Objects.Project = Project;
                 Levels.Project = Project;
-                Sprites.GameProject = Project;
+                Sprites.Project = Project;
                 Sounds.Project = Project;
                 Settings.Project = Project;
 
@@ -45,8 +45,12 @@ namespace SushiProject.ViewModels
             Levels.Project = Project;
             Levels.ObjectsVM = Objects;
             Sprites = new SpritesListViewModel();
+            Sprites.Project = Project;
             Sounds = new SoundsListViewModel();
+            Sounds.Project = Project;
             Settings = new SettingsViewModel();
+            Settings.Project = Project;
+
             NewCommand = new Command(NewProject, AlwaysTrue);
             CompileCommand = new Command(CompileProject, AlwaysTrue);
             SaveCommand = new Command(SaveProject, AlwaysTrue);

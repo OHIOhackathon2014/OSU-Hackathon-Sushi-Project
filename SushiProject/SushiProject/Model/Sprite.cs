@@ -7,12 +7,13 @@ using System.Threading.Tasks;
 
 namespace SushiProject.Model
 {
-    public class Animation
+    public class Sprite
     {
         public Collection<Image> Images { get; set; }
         public float FrameRate { get; set; }
+        public string Name { get; set; }
 
-        public Animation()
+        public Sprite()
         {
             Images = new Collection<Image>();
         }

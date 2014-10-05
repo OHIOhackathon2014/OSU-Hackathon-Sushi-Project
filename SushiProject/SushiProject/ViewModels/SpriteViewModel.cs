@@ -12,7 +12,6 @@ namespace SushiProject.ViewModels
 {
     public class SpriteViewModel : INotifyPropertyChanged
     {
-        public Animation animation { get; set; }
 
         private string name;
         public string Name
@@ -25,29 +24,27 @@ namespace SushiProject.ViewModels
             }
         }
 
-        private Image image;
-        public Image Image
+        private Sprite sprite;
+        public Sprite Sprite
         {
-            get { return image; }
+            get { return sprite; }
             set
             {
-                image = value;
-                Name = image.Name;
-                OnPropertyChanged("Image");
+                sprite = value;
+                Name = sprite.Name;
+                OnPropertyChanged("Sprite");
             }
         }
-        public Collection<ImageSource> Images { get; set; }
 
         public SpriteViewModel()
         {
-            Images = new Collection<ImageSource>();
-            Animation animation = new Animation();
+            sprite = new Sprite();
         }
 
         public void NewImage(object target)
         {
             Image image = new Image();
-            animation.Add(image);
+            sprite.Add(image);
         }
 
         public event PropertyChangedEventHandler PropertyChanged;

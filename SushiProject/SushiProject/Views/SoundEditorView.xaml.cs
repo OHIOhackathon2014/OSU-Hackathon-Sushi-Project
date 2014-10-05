@@ -17,9 +17,9 @@ namespace SushiProject.Views
     /// <summary>
     /// Interaction logic for SoundView.xaml
     /// </summary>
-    public partial class SoundView : Window
+    public partial class SoundEditorView : Window
     {
-        public SoundView()
+        public SoundEditorView()
         {
             InitializeComponent();
         }

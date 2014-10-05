@@ -70,7 +70,6 @@ namespace SushiProject.Utilities
             }
             xml.Add(gameObjectsXml);
 
-
             ///<Level>Levels
             XElement gameLevelsXml = new XElement("Levels");
             foreach (Level go in gameProject.Levels)
@@ -93,16 +92,28 @@ namespace SushiProject.Utilities
             }
             xml.Add(gameLevelsXml);
 
-            ///<Image>Images
-            XElement gameImagesXml = new XElement("Images");
-            foreach (Image go in gameProject.Images)
+            ///<Sprite>Sprites
+            XElement spritesXml = new XElement("Sprites");
+            foreach (Sprite sprite in gameProject.Sprites)
             {
-                XElement goImgXml = new XElement("Image");
-                goImgXml.Add(new XElement("Name", go.Name));
-                goImgXml.Add(new XElement("FilePath", go.FilePath));
-                gameImagesXml.Add(goImgXml);
+                XElement spriteXml = new XElement("Sprite");
+                spriteXml.Add(new XElement("Name", sprite.Name));
+                spriteXml.Add(new XElement("FrameRate", sprite.FrameRate));
+
+                ///<Image>Images
+                XElement imagesXml = new XElement("Images");
+                spriteXml.Add(imagesXml);
+                foreach (Image image in sprite.Images)
+                {
+                    XElement imgXml = new XElement("Image");
+                    imgXml.Add(new XElement("Name", image.Name));
+                    imgXml.Add(new XElement("FilePath", image.FilePath));
+                    imagesXml.Add(imgXml);
+                }
+
+                spritesXml.Add(spriteXml);
             }
-            xml.Add(gameImagesXml);
+            xml.Add(spritesXml);
 
 
             ///<Settings>Settings
@@ -176,16 +187,26 @@ namespace SushiProject.Utilities
                 }
             }
 
-            ///<Image>Images
-            gameProject.Images = new Collection<Image>();
-            XElement gameImagesXml = xml.Element("Images");
-            foreach (XElement imageXml in gameImagesXml.Elements("Image"))
+            ///<Sprite>Sprites
+            gameProject.Sprites = new Collection<Sprite>();
+            XElement gameSpritesXml = xml.Element("Sprites");
+            foreach (XElement spriteXml in gameSpritesXml.Elements("Sprite"))
             {
-                string name = imageXml.Element("Name").Value;
-                string imgFilepath = imageXml.Element("FilePath").Value;
-                gameProject.Images.Add(new Image(imgFilepath,name));
-            }
+                Sprite sprite = new Sprite();
+                sprite.Name = spriteXml.Element("Name").Value;
+                sprite.FrameRate = int.Parse(spriteXml.Element("FrameRate").Value);
 
+                ///<Image>Images
+                sprite.Images = new Collection<Image>();
+                XElement imagesXml = spriteXml.Element("Images");
+                foreach (XElement imageXml in imagesXml.Elements("Image"))
+                {
+                    string name = imageXml.Element("Name").Value;
+                    string imgFilepath = imageXml.Element("FilePath").Value;
+                    sprite.Images.Add(new Image(imgFilepath, name));
+                }
+                gameProject.Sprites.Add(sprite);
+            }
 
             ///<Settings>Settings
             gameProject.Settings = new GameSettings();

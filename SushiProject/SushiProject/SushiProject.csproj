@@ -76,7 +76,8 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="Commands\DelegateCommand.cs" />
-    <Compile Include="Model\Animation.cs" />
+    <Compile Include="Model\Sound.cs" />
+    <Compile Include="Model\Sprite.cs" />
     <Compile Include="Model\GameProject.cs" />
     <Compile Include="Model\GameSettings.cs" />
     <Compile Include="Model\Image.cs" />

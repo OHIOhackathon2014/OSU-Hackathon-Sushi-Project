@@ -1,4 +1,5 @@
 ﻿using SushiProject.Commands;
+using SushiProject.Model;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -11,6 +12,18 @@ namespace SushiProject.ViewModels
 {
     public class SoundViewModel : INotifyPropertyChanged
     {
+        private Sound sound;
+        public Sound Sound
+        {
+            get { return sound; }
+            set
+            {
+                sound = value;
+                Name = sound.Name;
+                OnPropertyChanged("Sound");
+            }
+        }
+
         private System.Media.SoundPlayer soundClip = new System.Media.SoundPlayer();
         public System.Media.SoundPlayer SoundClip
         {
@@ -21,8 +34,6 @@ namespace SushiProject.ViewModels
             }
         }
         
-
-
         private string windowTitle;
         public string WindowTitle
         {
@@ -48,6 +59,8 @@ namespace SushiProject.ViewModels
 
         public SoundViewModel()
         {
+            sound = new Sound();
+            System.Media.SoundPlayer soundPlayer = new System.Media.SoundPlayer();
         }
 
 
