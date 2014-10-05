@@ -6,18 +6,38 @@
     <DockPanel>
         <DockPanel DockPanel.Dock="Top" Height="64">
             <Image DockPanel.Dock="Left" Width="64" Height="64" Source="pack://application:,,,/Assets/ball.png" ></Image>
-            <StackPanel DockPanel.Dock="Left" Orientation="Vertical">
+            <StackPanel DockPanel.Dock="Left" Orientation="Vertical" Margin="8">
                 <Grid>
                     <Grid.RowDefinitions>
                         <RowDefinition/>
                         <RowDefinition/>
                     </Grid.RowDefinitions>
                     <Grid.ColumnDefinitions>
-                        <ColumnDefinition/>
+                        <ColumnDefinition Width="56"/>
                         <ColumnDefinition/>
                     </Grid.ColumnDefinitions>
-                    <TextBlock Grid.Row="0" Grid.Column="0" Text="Name"/>
+                    <TextBlock Grid.Row="0" Grid.Column="0" Text="Name "/>
                     <TextBox Grid.Row="0" Grid.Column="1" Width="128" Text="{Binding Name}"/>
+                    <StackPanel Margin="4" Orientation="Horizontal"  Grid.Row="1" Grid.Column="1" >
+                        <CheckBox Width="16" Margin="2" Content="{Binding Visible}"/>
+                        <TextBlock Text="Visible"/>
+                    </StackPanel>
+                </Grid>
+            </StackPanel>
+            <StackPanel DockPanel.Dock="Left" Orientation="Vertical" Margin="8">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="56"/>
+                        <ColumnDefinition/>
+                    </Grid.ColumnDefinitions>
+                    <TextBlock Grid.Row="0" Grid.Column="0" Text="Hitbox "/>
+                    <ComboBox Grid.Row="0" Grid.Column="1" Width="128" Text="{Binding Hitbox}"/>
+                    <TextBlock Grid.Row="1" Grid.Column="0" Text="Parent "/>
+                    <ComboBox Grid.Row="1" Grid.Column="1" Width="128" Text="{Binding ParentObject}"/>
                 </Grid>
             </StackPanel>
             <Image></Image>
