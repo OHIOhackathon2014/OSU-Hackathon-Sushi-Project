@@ -26,6 +26,14 @@ namespace SushiProject.ViewModels
             Name = "Spawn Instance";
         }
 
+        public MethodViewModel Instantiate()
+        {
+            // Copy and return instance
+            MethodViewModel copy = new MethodViewModel();
+            copy.Name = Name;
+            return copy;
+        }
+
         public event PropertyChangedEventHandler PropertyChanged;
         protected void OnPropertyChanged(string name)
         {

@@ -76,6 +76,9 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="Commands\DelegateCommand.cs" />
+    <Compile Include="CustomControls\DragAdorner.cs" />
+    <Compile Include="CustomControls\ListViewDragDropManager.cs" />
+    <Compile Include="CustomControls\MouseUtilities.cs" />
     <Compile Include="Model\Animation.cs" />
     <Compile Include="Model\GameProject.cs" />
     <Compile Include="Model\GameSettings.cs" />

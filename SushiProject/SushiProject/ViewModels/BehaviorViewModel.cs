@@ -20,8 +20,18 @@ namespace SushiProject.ViewModels
                 OnPropertyChanged("Name");
             }
         }
-
-        public ObservableCollection<MethodViewModel> Methods = new ObservableCollection<MethodViewModel>();
+        private ObservableCollection<MethodViewModel> methods = new ObservableCollection<MethodViewModel>();
+        public ObservableCollection<MethodViewModel> Methods {
+            get
+            {
+                return methods;
+            }
+            set
+            {
+                methods = value;
+                OnPropertyChanged("Methods");
+            }
+        }
 
         public BehaviorViewModel()
         {
