@@ -1,7 +1,10 @@
 package 
 {
 	import flash.display.Sprite;
+	import flash.display.Bitmap;
 	import flash.events.Event;
+	import flash.events.KeyboardEvent;
+	import flash.events.MouseEvent;
 	
 	public class !NAME! extends Sprite 
 	{
@@ -14,14 +17,38 @@ package
 			
 			!INITSPRITE!
 			
-			addEventListener(Event.ADDED_TO_STAGE, AddEventModel);
+			addEventListener(Event.ADDED_TO_STAGE, AddedToStage);
 		}
 		
-		private function AddEventModel(e:Event):void 
+		private function AddedToStage(e:Event):void 
 		{
-			removeEventListener(Event.ADDED_TO_STAGE, init);
+			removeEventListener(Event.ADDED_TO_STAGE, AddedToStage);
 			
 			!ADDSPRITE!
+		}
+		
+		public function onEnterFrame(elapsed:Number):void {
+		
+		}
+		
+		public function onKeyDown(e:KeyboardEvent):void {
+		
+		}
+		
+		public function onKeyUp(e:KeyboardEvent):void {
+		
+		}
+		
+		public function onMouseMove(e:MouseEvent):void {
+		
+		}
+		
+		public function onMouseDown(e:MouseEvent):void {
+		
+		}
+		
+		public function onMouseUp(e:MouseEvent):void {
+		
 		}
 	}
 }

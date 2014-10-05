@@ -97,7 +97,7 @@ namespace SushiProject.Utilities
                     initgameobjects += "\t\t\tgameObjectsList.push(go_"+counter.ToString()+");\n";
                     ++counter;
                 }
-                
+
                 levelText = levelText.Replace("!INITGAMEOBJECTS!", initgameobjects);
                 System.IO.File.WriteAllText(path + level.Name.Replace(" ", "_") + ".as", levelText);
             }

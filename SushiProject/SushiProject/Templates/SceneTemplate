@@ -8,7 +8,7 @@ package
 	
 	public class !SCENECLASSNAME! extends Sprite implements SceneBase
 	{
-		public var gameObjectList:Array = [];
+		public var gameObjectsList:Array = [];
 		public var mouseDown:Boolean;
 		public var mX:Number = -100, mY:Number = -100;
 		
@@ -34,53 +34,53 @@ package
 			back.alpha = 0;
 			addChild(back);
 			
-			for (var i:int = 0; i < gameObjectList.length; ++i) {
-				addChild(gameObjectList[i]);
+			for (var i:int = 0; i < gameObjectsList.length; ++i) {
+				addChild(gameObjectsList[i]);
 			}
 		}
 		
 		public function onEnterFrame(elapsed:Number):void {
-			var len:int = gameObjectList.length;
+			var len:int = gameObjectsList.length;
 			for (var i:int = 0; i < len; ++i) {
-				gameObjectList[i].onEnterFrame(elapsed);
+				gameObjectsList[i].onEnterFrame(elapsed);
 			}
 		}
 		
 		public function onKeyDown(e:KeyboardEvent):void {
-			var len:int = gameObjectList.length;
+			var len:int = gameObjectsList.length;
 			for (var i:int = 0; i < len; ++i) {
-				gameObjectList[i].onKeyDown(e);
+				gameObjectsList[i].onKeyDown(e);
 			}
 		}
 		public function onKeyUp(e:KeyboardEvent):void {
-			var len:int = gameObjectList.length;
+			var len:int = gameObjectsList.length;
 			for (var i:int = 0; i < len; ++i) {
-				gameObjectList[i].onKeyUp(e);
+				gameObjectsList[i].onKeyUp(e);
 			}
 		}
 		
 		public function onMouseMove(e:MouseEvent):void {
 			//mX = e.stageX;
 			//mY = e.stageY;
-			var len:int = gameObjectList.length;
+			var len:int = gameObjectsList.length;
 			for (var i:int = 0; i < len; ++i) {
-				gameObjectList[i].onMouseMove(e);
+				gameObjectsList[i].onMouseMove(e);
 			}
 		}
 		
 		public function onMouseDown(e:MouseEvent):void {
 			mouseDown = true;
-			var len:int = gameObjectList.length;
+			var len:int = gameObjectsList.length;
 			for (var i:int = 0; i < len; ++i) {
-				gameObjectList[i].onMouseDown(e);
+				gameObjectsList[i].onMouseDown(e);
 			}
 		}
 		
 		public function onMouseUp(e:MouseEvent):void {
 			mouseDown = false;
-			var len:int = gameObjectList.length;
+			var len:int = gameObjectsList.length;
 			for (var i:int = 0; i < len; ++i) {
-				gameObjectList[i].onMouseUp(e);
+				gameObjectsList[i].onMouseUp(e);
 			}
 		}
 		

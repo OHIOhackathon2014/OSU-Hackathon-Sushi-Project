@@ -26,7 +26,7 @@ namespace SushiProject.Utilities
             System.Diagnostics.ProcessStartInfo startInfo = new System.Diagnostics.ProcessStartInfo();
             startInfo.WindowStyle = System.Diagnostics.ProcessWindowStyle.Hidden;
             startInfo.FileName = "cmd.exe";
-            startInfo.Arguments = String.Format("/C C:\\AirSDK\\bin\\mxmlc.exe C:\\game\\Main.as -output C:\\game\\game.swf");
+            startInfo.Arguments = String.Format("/C C:\\AirSDK\\bin\\mxmlc.exe -static-link-runtime-shared-libraries=true C:\\game\\Main.as -output C:\\game\\game.swf");
             process.StartInfo = startInfo;
             process.Start();
         }
