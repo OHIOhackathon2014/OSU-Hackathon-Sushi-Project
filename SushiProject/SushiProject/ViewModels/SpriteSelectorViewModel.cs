@@ -16,6 +16,7 @@ namespace SushiProject.ViewModels
             get { return sprites; }
             set { sprites = value; OnPropertyChanged("Sprites"); }
         }
+
         private SpriteViewModel selectedSprite;
         public SpriteViewModel SelectedSprite
         {

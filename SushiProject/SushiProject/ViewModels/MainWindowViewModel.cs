@@ -42,6 +42,7 @@ namespace SushiProject.ViewModels
             ProjectDirectoryManager.Instance.CreateProjectDirectories();
 
             Objects = new ObjectsListViewModel();
+            Objects.mainWindowVM = this;
             Objects.Project = Project;
             Levels = new LevelsListViewModel();
             Levels.Project = Project;

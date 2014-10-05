@@ -1,6 +1,7 @@
 ﻿using SushiProject.ViewModels;
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -20,6 +21,22 @@ namespace SushiProject.Views
     /// </summary>
     public partial class SpriteSelectorView : Window
     {
+        private ObservableCollection<SpriteViewModel> spriteCollection;
+        public ObservableCollection<SpriteViewModel> SpriteCollection
+        {
+            get
+            {
+                return spriteCollection;
+            }
+            set {
+                spriteCollection = value;
+                if (DataContext != null)
+                {
+                    ((SpriteSelectorViewModel)DataContext).Sprites = value;
+                }
+            }
+        }
+        
         public SpriteViewModel result;
 
         public SpriteSelectorView()
@@ -29,7 +46,7 @@ namespace SushiProject.Views
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            var ssv = (SpriteSelectorViewModel)DataContext;
+            SpriteSelectorViewModel ssv = (SpriteSelectorViewModel)DataContext;
             result = ssv.SelectedSprite;
             Close();
         }

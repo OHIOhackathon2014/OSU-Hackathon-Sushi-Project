@@ -31,11 +31,14 @@ namespace SushiProject.ViewModels
                 foreach (GameObject go in Project.Objects)
                 {
                     ObjectViewModel ovm = new ObjectViewModel();
+                    ovm.mainWindowVM = mainWindowVM;
                     ovm.Name = go.Name;
                     ObjectCollection.Add(ovm);
                 }
             }
         }
+
+        public MainWindowViewModel mainWindowVM;
 
         public ObjectsListViewModel()
         {

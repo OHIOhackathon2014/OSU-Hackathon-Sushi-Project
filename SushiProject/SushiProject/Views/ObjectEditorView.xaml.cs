@@ -146,7 +146,8 @@ namespace SushiProject.Views
         {
             SpriteSelectorView ssv = new SpriteSelectorView();
             ObjectViewModel ovm = (ObjectViewModel)DataContext;
-            //ssv.spriteCollection = ovm.spritesListVM.SpriteCollection;
+            ssv.DataContext = new SpriteSelectorViewModel();
+            ssv.SpriteCollection = ovm.mainWindowVM.Sprites.SpriteCollection;
             ssv.Owner = this;
             ssv.ShowDialog();
         }

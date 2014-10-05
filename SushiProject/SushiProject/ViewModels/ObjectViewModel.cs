@@ -25,6 +25,8 @@ namespace SushiProject.ViewModels
             }
         }
 
+        public MainWindowViewModel mainWindowVM;
+
         public GameObject gameObject { get; set; }
 
         private string windowTitle="";
