@@ -5,6 +5,7 @@ using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Media;
 
 namespace SushiProject.ViewModels
 {
@@ -20,6 +21,14 @@ namespace SushiProject.ViewModels
                 OnPropertyChanged("Name");
             }
         }
+
+        private ImageSource icon;
+        public ImageSource Icon
+        {
+            get { return icon; }
+            set { icon = value; OnPropertyChanged("Icon"); }
+        }
+
         private ObservableCollection<MethodViewModel> methods = new ObservableCollection<MethodViewModel>();
         public ObservableCollection<MethodViewModel> Methods {
             get

@@ -242,6 +242,19 @@
   <ItemGroup>
     <None Include="Templates\AssetsTemplate" />
   </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Assets\Methods\changeposition.png" />
+    <Resource Include="Assets\Methods\Collision.png" />
+    <Resource Include="Assets\Methods\Initizalize.png" />
+    <Resource Include="Assets\Methods\destroy.png" />
+    <Resource Include="Assets\Methods\initialize.png" />
+    <Resource Include="Assets\Methods\Keyboard.png" />
+    <Resource Include="Assets\Methods\Mouse.png" />
+    <Resource Include="Assets\Methods\newinstance.png" />
+    <Resource Include="Assets\Methods\scale.png" />
+    <Resource Include="Assets\Methods\transparency.png" />
+    <Resource Include="Assets\Methods\Update.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

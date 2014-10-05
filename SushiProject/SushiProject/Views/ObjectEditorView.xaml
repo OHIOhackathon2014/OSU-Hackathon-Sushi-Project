@@ -40,9 +40,9 @@
                     </ItemsControl.ItemsPanel>
                     <ItemsControl.ItemTemplate>
                         <DataTemplate>
-                            <DockPanel>
-                                <TextBlock Text="{Binding Name}" HorizontalAlignment="Center" DockPanel.Dock="Bottom"/>
-                                <Image Width="40" Height="40" Source="pack://application:,,,/Assets/Methods/tile.png" Margin="3"/>
+                            <DockPanel ToolTipService.ToolTip="{Binding Name}">
+                                <!--<TextBlock Text="{Binding Name}" HorizontalAlignment="Center" DockPanel.Dock="Bottom"/>-->
+                                <Image Width="40" Height="40" Source="{Binding Icon}" Margin="3"/>
                             </DockPanel>
                         </DataTemplate>
                     </ItemsControl.ItemTemplate>
@@ -57,28 +57,21 @@
                 <Button DockPanel.Dock="Left" Content="Delete Behavior" Width="128" Height="32" Command="{Binding DeleteCommand}" CommandParameter="{Binding ElementName=BehaviorListBox, Path=SelectedItem}"/>
                 <Image/>
             </DockPanel>
-            <ListBox x:Name="BehaviorListBox" ItemsSource="{Binding Behaviors}" HorizontalContentAlignment="Stretch">
+            <ListBox x:Name="BehaviorListBox"
+                     ItemsSource="{Binding Behaviors}"
+                     HorizontalContentAlignment="Stretch">
                 <ListBox.ItemContainerStyle>
                     <Style TargetType="ListBoxItem">
-                        <Setter Property="HorizontalContentAlignment" Value="Stretch"></Setter>
+                        <Setter Property="HorizontalContentAlignment" Value="Stretch" />
                     </Style>
                 </ListBox.ItemContainerStyle>
                 <ListBox.ItemTemplate>
                     <DataTemplate>
                         <DockPanel HorizontalAlignment="Stretch">
-                            <Grid DockPanel.Dock="Left"
-                                        Width="96">
-                                <Grid.RowDefinitions>
-                                    <RowDefinition/>
-                                    <RowDefinition/>
-                                </Grid.RowDefinitions>
-                                <Grid.ColumnDefinitions>
-                                    <ColumnDefinition/>
-                                    <ColumnDefinition />
-                                </Grid.ColumnDefinitions>
-                                <TextBlock Grid.Row="0" Grid.Column="0" Text="{Binding Name}" HorizontalAlignment="Stretch" />
-                                <Image Grid.Row="1" Grid.Column="1" Width="48" Height="48" />
-                            </Grid>
+                            <DockPanel DockPanel.Dock="Left" Width="96">
+                                <TextBlock DockPanel.Dock="Top" HorizontalAlignment="Left" Text="{Binding Name}" />
+                                <Image Grid.Row="1" Grid.Column="1" Width="48" Height="48" Source="{Binding Icon}" />
+                            </DockPanel>
                             <ListBox x:Name="MethodsListBox"
                                      ItemsSource="{Binding Methods}"
                                      Width="480"
@@ -99,7 +92,7 @@
                                     <DataTemplate>
                                         <DockPanel>
                                             <TextBlock DockPanel.Dock="Bottom" HorizontalAlignment="Center" Text="{Binding Name}" />
-                                            <Image Width="64" Height="64" Source="pack://application:,,,/Assets/ball.png" />
+                                            <Image Width="64" Height="64" Source="{Binding Icon}" />
                                         </DockPanel>
                                     </DataTemplate>
                                 </ListBox.ItemTemplate>

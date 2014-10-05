@@ -5,6 +5,8 @@ using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Media;
+using System.Windows.Media.Imaging;
 
 namespace SushiProject.ViewModels
 {
@@ -18,20 +20,21 @@ namespace SushiProject.ViewModels
             AvailableMethods = new ObservableCollection<MethodViewModel>();
             PopulateAvailableMethods();
         }
-        
-        public void AddMethod(string name)
+
+        public void AddMethod(string name, string imgName)
         {
             MethodViewModel mvm = new MethodViewModel();
             mvm.Name = name;
+            mvm.Icon = new BitmapImage(new Uri(String.Format("../Assets/Methods/{0}.png", imgName), UriKind.Relative));
             AvailableMethods.Add(mvm);
         }
 
         public void PopulateAvailableMethods()
         {
-            AddMethod("Spawn Instance");
-            AddMethod("Move");
-            AddMethod("Set Image Transform");
-            AddMethod("Set Variable");
+            AddMethod("Spawn Instance", "newinstance");
+            AddMethod("Move", "changeposition");
+            AddMethod("Set Scale", "scale");
+            AddMethod("Set Transparency", "transparency");
         }
 
         public event PropertyChangedEventHandler PropertyChanged;

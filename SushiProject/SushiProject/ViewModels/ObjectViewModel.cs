@@ -9,6 +9,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Windows.Media.Imaging;
 
 namespace SushiProject.ViewModels
 {
@@ -89,6 +90,16 @@ namespace SushiProject.ViewModels
             }
             BehaviorViewModel bvm = new BehaviorViewModel();
             bvm.Name = behaviorName;
+
+            string iconName = String.Empty;
+            string bname = behaviorName.ToLower();
+            if (bname.Contains("mouse")) iconName = "Mouse";
+            else if (bname.Contains("initialize")) iconName = "Initialized";
+            else if (bname.Contains("keyboard")) iconName = "Keyboard";
+            else if (bname.Contains("collision")) iconName = "Collision";
+            else if (bname.Contains("update")) iconName = "Update";
+            else if (bname.Contains("destroy")) iconName = "Destroy";
+            if (iconName != String.Empty) bvm.Icon = new BitmapImage(new Uri(String.Format("../Assets/Methods/{0}.png", behaviorName.ToLower()), UriKind.Relative));
             Behaviors.Add(bvm);
         }
 
