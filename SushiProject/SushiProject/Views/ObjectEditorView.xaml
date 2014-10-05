@@ -5,7 +5,7 @@
         Title="{Binding WindowTitle}" Height="600" Width="800">
     <DockPanel>
         <DockPanel DockPanel.Dock="Top" Height="64">
-            <Image DockPanel.Dock="Left" Width="64" Height="64" Source="pack://application:,,,/Assets/ball.png" ></Image>
+            <Image DockPanel.Dock="Left" Width="64" Height="64" Source="{Binding Sprite.Sprite.FirstImage.ImageSrc}" />
             <StackPanel DockPanel.Dock="Left" Orientation="Vertical" Margin="8">
                 <Grid>
                     <Grid.RowDefinitions>

@@ -9,7 +9,14 @@
             <Button Content="Select" Width="128" Height="48" Click="Button_Click"/>
         </StackPanel>
         <ListBox ItemsSource="{Binding Sprites}" SelectedItem="{Binding SelectedSprite}">
-            
+            <ListBox.ItemTemplate>
+                <DataTemplate>
+                    <StackPanel Orientation="Vertical" Width="96" Height="96">
+                        <Image Width="80" Height="80" Source="{Binding Sprite.FirstImage.ImageSrc}"/>
+                        <TextBlock Text="{Binding Name}"/>
+                    </StackPanel>
+                </DataTemplate>
+            </ListBox.ItemTemplate>
         </ListBox>
     </DockPanel>
 </Window>

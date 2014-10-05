@@ -19,7 +19,6 @@ namespace SushiProject.Model
                 OnPropertyChanged("FirstImage");
             }
 	    }
-	
 
         public ObservableCollection<Image> Images { get; set; }
         public float FrameRate { get; set; }

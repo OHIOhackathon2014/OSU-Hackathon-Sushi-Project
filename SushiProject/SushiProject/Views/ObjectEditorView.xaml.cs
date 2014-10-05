@@ -150,6 +150,10 @@ namespace SushiProject.Views
             ssv.SpriteCollection = ovm.mainWindowVM.Sprites.SpriteCollection;
             ssv.Owner = this;
             ssv.ShowDialog();
+            if (ssv.result != null)
+            {
+                ovm.Sprite = ssv.result;    
+            }
         }
     }
 }
