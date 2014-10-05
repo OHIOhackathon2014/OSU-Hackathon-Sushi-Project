@@ -53,6 +53,7 @@ namespace SushiProject.ViewModels
                     LevelViewModel lvm = new LevelViewModel();
                     lvm.ObjectsVM = this.ObjectsVM;
                     lvm.Name = level.Name;
+                    lvm.level = level;
                     LevelCollection.Add(lvm);
                     lvm.ScreenWidth = Project.Settings.ScreenWidth;
                     lvm.ScreenHeight = Project.Settings.ScreenHeight;
@@ -82,8 +83,10 @@ namespace SushiProject.ViewModels
         {
             LevelViewModel lvm = new LevelViewModel();
             lvm.Name = "Level";
+            lvm.ObjectsVM = this.objectsVM;
             Level level = new Level();
             level.Name = lvm.Name;
+            lvm.level = level;
             Project.Levels.Add(level);
             LevelCollection.Add(lvm);
         }

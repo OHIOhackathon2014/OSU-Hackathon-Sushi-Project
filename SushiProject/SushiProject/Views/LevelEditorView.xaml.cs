@@ -77,15 +77,17 @@ namespace SushiProject.Views
                 // Draw the game objects
                 foreach (LevelObjectViewModel obj in dataContext.LevelObjects)
                 {
-                    WriteableBitmap source;
+                    WriteableBitmap source = defaultErrorBmp;
                     if (obj.GameObjectRefernce != null &&
                         obj.GameObjectRefernce.Sprite != null &&
                         obj.GameObjectRefernce.Sprite.Sprite.FirstImage != null &&
                         obj.GameObjectRefernce.Sprite.Sprite.FirstImage.ImageSrc != null) {
-                            source = BitmapFactory.ConvertToPbgra32Format(
-                                new WriteableBitmap((BitmapSource)obj.GameObjectRefernce.Sprite.Sprite.FirstImage.ImageSrc));
-                    } else {
-                        source = defaultErrorBmp;
+                            try
+                            {
+                                source = BitmapFactory.ConvertToPbgra32Format(
+                                    new WriteableBitmap((BitmapSource)obj.GameObjectRefernce.Sprite.Sprite.FirstImage.ImageSrc));
+                            }
+                            catch { };
                     }
                     bmpStage.Blit(new Rect(obj.X, obj.Y, obj.Width, obj.Height),            // Destination rectangle
                         source,                                                        // Image source

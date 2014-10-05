@@ -56,6 +56,7 @@ namespace SushiProject.ViewModels
         {
             ObjectViewModel ovm = new ObjectViewModel();
             ovm.Name = "default";
+            ovm.mainWindowVM = mainWindowVM;
             GameObject go = new GameObject();
             go.Name = ovm.Name;
             Project.Objects.Add(go);

@@ -48,26 +48,6 @@ namespace SushiProject.ViewModels
             set { backgroundColor = value; OnPropertyChanged("BackgroundColor"); }
         }
 
-        private double rotation = 0;
-        public double Rotation
-        {
-            get { return rotation; }
-            set { rotation = value; OnPropertyChanged("Rotation"); }
-        }
-
-        private double scaleX = 1;
-        public double ScaleX
-        {
-            get { return scaleX; }
-            set { scaleX = value; OnPropertyChanged("ScaleX"); }
-        }
-
-        private double scaleY = 1;
-        public double ScaleY
-        {
-            get { return scaleY; }
-            set { scaleY = value; OnPropertyChanged("ScaleY"); }
-        }
         
         private int screenWidth = 640;
         public int ScreenWidth
@@ -177,6 +157,13 @@ namespace SushiProject.ViewModels
         {
             // Save the view model data to the model
             level.Name = Name;
+            
+            level.levelObjects.Clear();
+            foreach (LevelObjectViewModel lovm in LevelObjects)
+            {
+                LevelObject lo = new LevelObject(lovm.GameObjectRefernce.gameObject, lovm.X, lovm.Y, lovm.Rotation, lovm.ScaleX, lovm.ScaleY);
+                level.levelObjects.Add(lo);
+            }
 
             ((System.Windows.Window)target).Close();
         }

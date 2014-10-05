@@ -1,0 +1,19 @@
+package 
+{
+	import flash.events.Event;
+	import flash.events.KeyboardEvent;
+	import flash.events.MouseEvent;
+	
+	public interface SceneBase  
+	{
+		function Show():void;
+		function Hide():void;
+		
+		function onEnterFrame(elapsedTime:Number):void;
+		function onKeyDown(e:KeyboardEvent):void;
+		function onKeyUp(e:KeyboardEvent):void;
+		function onMouseMove(e:MouseEvent):void;
+		function onMouseDown(e:MouseEvent):void;
+		function onMouseUp(e:MouseEvent):void;
+	}
+}

@@ -11,12 +11,16 @@ namespace SushiProject.Model
         public double X { get; set; }
         public double Y { get; set; }
         public double Rotation { get; set; }
+        public double ScaleX { get; set; }
+        public double ScaleY { get; set; }
         public GameObject Class { get; set; }
 
-        public LevelObject(GameObject Class, double X, double Y, double Rotation)
+        public LevelObject(GameObject Class, double X, double Y, double Rotation, double ScaleX, double ScaleY)
         {
             this.X = X;
             this.Y = Y;
+            this.ScaleX = ScaleX;
+            this.ScaleY = ScaleY;
             this.Class = Class;
             this.Rotation = Rotation;
         }

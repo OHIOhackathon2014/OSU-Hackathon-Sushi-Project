@@ -1,7 +1,16 @@
-﻿package 
+﻿package  
 {
-	public class Assets
+	public class Assets 
 	{
-		!ASSETLIST!
+		// Graphics
+		//[Embed(source = "assets/images/ball.png")] public static var IMG_BALL:Class;
+		!GRAPHICS!
+		
+		// Sounds
+		!SOUNDS!
+		
+		// Levels
+		//[Embed(source = 'assets/levels/lvl1.xml', mimeType = "application/octet-stream")] public static const LEVEL1:Class;
+		!LEVELS!
 	}
 }

@@ -1,0 +1,93 @@
+package 
+{
+	import flash.display.Shape;
+	import flash.display.Sprite;
+	import flash.events.Event;
+	import flash.events.KeyboardEvent;
+	import flash.events.MouseEvent;
+	
+	public class !SCENECLASSNAME! extends Sprite implements SceneBase
+	{
+		public gameObjectList:Array = [];
+		public var mouseDown:Boolean;
+		public var mX:Number = -100, mY:Number = -100;
+		
+		public function !SCENECLASSNAME!() 
+		{
+			super();
+			Init();
+			addEventListener(Event.ADDED_TO_STAGE, onAddedToStage);	
+		}
+		
+		public function Init():void {
+			!INITGAMEOBJECTS!
+		}
+		
+		public function onAddedToStage(e:Event):void {
+			removeEventListener(Event.ADDED_TO_STAGE, onAddedToStage);
+			
+			// Add an object that covers the entire scene to always receive mouse input.
+			var back:Shape = new Shape();
+			back.graphics.beginFill(0xFFFFFF);
+			back.graphics.drawRect(0, 0, Main.w, Main.h);
+			back.graphics.endFill();
+			back.alpha = 0;
+			addChild(back);
+			
+			!ADDCHILDREN!
+		}
+		
+		public function onEnterFrame(elapsed:Number):void {
+			var len:int = gameObjectList.length;
+			for (var i:int = 0; i < len; ++i) {
+				gameObjectList[i].onEnterFrame(elapsed);
+			}
+		}
+		
+		public function onKeyDown(e:KeyboardEvent):void {
+			var len:int = gameObjectList.length;
+			for (var i:int = 0; i < len; ++i) {
+				gameObjectList[i].onKeyDown(e);
+			}
+		}
+		public function onKeyUp(e:KeyboardEvent):void {
+			var len:int = gameObjectList.length;
+			for (var i:int = 0; i < len; ++i) {
+				gameObjectList[i].onKeyUp(e);
+			}
+		}
+		
+		public function onMouseMove(e:MouseEvent):void {
+			//mX = e.stageX;
+			//mY = e.stageY;
+			var len:int = gameObjectList.length;
+			for (var i:int = 0; i < len; ++i) {
+				gameObjectList[i].onMouseMove(e);
+			}
+		}
+		
+		public function onMouseDown(e:MouseEvent):void {
+			mouseDown = true;
+			var len:int = gameObjectList.length;
+			for (var i:int = 0; i < len; ++i) {
+				gameObjectList[i].onMouseDown(e);
+			}
+		}
+		
+		public function onMouseUp(e:MouseEvent):void {
+			mouseDown = false;
+			var len:int = gameObjectList.length;
+			for (var i:int = 0; i < len; ++i) {
+				gameObjectList[i].onMouseUp(e);
+			}
+		}
+		
+		public function Show():void {
+			visible = true;
+		}
+		
+		public function Hide():void {
+			visible = false;
+		}
+	}
+}

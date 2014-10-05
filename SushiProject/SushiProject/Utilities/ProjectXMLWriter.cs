@@ -159,7 +159,6 @@ namespace SushiProject.Utilities
                 gameProject.Objects.Add(go);
             }
 
-
             ///<Level>Levels
             XElement gameLevelsXml = xml.Element("Levels");
             gameProject.Levels = new Collection<Level>();
@@ -175,12 +174,14 @@ namespace SushiProject.Utilities
                     double x = double.Parse(levelObjXml.Element("X").Value);
                     double y = double.Parse(levelObjXml.Element("Y").Value);
                     double rot = double.Parse(levelObjXml.Element("Rotation").Value);
+                    double scaleX = double.Parse(levelObjXml.Element("ScaleX").Value);
+                    double scaleY = double.Parse(levelObjXml.Element("ScaleY").Value);
                     string classname = levelObjXml.Element("Class.Name").Value;
                     foreach (GameObject go in gameProject.Objects)
                     {
                         if (go.Name == classname)
                         {
-                            level.levelObjects.Add(new LevelObject(go, x, y, rot));
+                            level.levelObjects.Add(new LevelObject(go, x, y, rot, scaleX, scaleY));
                             break;
                         }
                     }

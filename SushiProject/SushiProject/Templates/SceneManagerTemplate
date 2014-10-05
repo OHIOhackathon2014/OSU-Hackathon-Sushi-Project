@@ -1,0 +1,73 @@
+package  
+{
+	import flash.display.Sprite;
+	import flash.events.Event;
+	import flash.events.KeyboardEvent;
+	import flash.events.MouseEvent;
+	
+	/**
+	 * ...
+	 * @author 
+	 */
+	public class SceneManager extends Sprite 
+	{
+		private var current:SceneBase;
+		private var scenes:Array = [];
+		
+		public var currentTime:Number = 0,
+			elapsedTime:Number = 0;
+		public var prevTime:Number = 0,
+			mouseDown:Boolean = false;
+		
+		public function SceneManager() 
+		{
+			super();
+			
+			!ADDLEVELS!
+			
+			current = !FIRSTLEVEL!;
+			menuScene.Hide();
+			addEventListener(Event.ADDED_TO_STAGE, onAddedToStage);
+			addEventListener(Event.ENTER_FRAME, onEnterFrame);
+			addEventListener(MouseEvent.MOUSE_MOVE, onMouseMove);
+			addEventListener(MouseEvent.MOUSE_DOWN, onMouseDown);
+			addEventListener(MouseEvent.MOUSE_UP, onMouseUp);
+			addEventListener(Event.ENTER_FRAME, onEnterFrame);
+		}
+		
+		public function onAddedToStage(e:Event):void {
+			removeEventListener(Event.ADDED_TO_STAGE, onAddedToStage);
+			addChild(playScene);
+			addChild(menuScene);
+		}
+		
+		public function onEnterFrame(e:Event):void {
+			currentTime = getTimer() / 1000.0;
+			elapsedTime = currentTime - prevTime;
+			prevTime = currentTime;
+			current.onEnterFrame(elapsedTime);
+		}
+		
+		public function onKeyDown(e:KeyboardEvent):void {
+			current.onKeyDown(e);
+		}
+		
+		public function onKeyUp(e:KeyboardEvent):void {
+			current.onKeyUp(e);
+		}
+		
+		public function onMouseMove(e:MouseEvent):void {
+			current.onMouseMove(e);
+		}
+		
+		public function onMouseDown(e:MouseEvent):void {
+			mouseDown = true;
+			current.onMouseDown(e);
+		}
+		
+		public function onMouseUp(e:MouseEvent):void {
+			mouseDown = false;
+			current.onMouseUp(e);
+		}
+	}
+}

@@ -57,6 +57,27 @@ namespace SushiProject.ViewModels
             }
         }
 
+        private double rotation = 0;
+        public double Rotation
+        {
+            get { return rotation; }
+            set { rotation = value; OnPropertyChanged("Rotation"); }
+        }
+
+        private double scaleX = 1;
+        public double ScaleX
+        {
+            get { return scaleX; }
+            set { scaleX = value; OnPropertyChanged("ScaleX"); }
+        }
+
+        private double scaleY = 1;
+        public double ScaleY
+        {
+            get { return scaleY; }
+            set { scaleY = value; OnPropertyChanged("ScaleY"); }
+        }
+
         private double x;
         public double X
         {
