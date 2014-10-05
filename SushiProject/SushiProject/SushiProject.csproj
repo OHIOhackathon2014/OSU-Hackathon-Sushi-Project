@@ -76,15 +76,11 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="Commands\DelegateCommand.cs" />
-<<<<<<< HEAD
     <Compile Include="CustomControls\DragAdorner.cs" />
     <Compile Include="CustomControls\ListViewDragDropManager.cs" />
     <Compile Include="CustomControls\MouseUtilities.cs" />
-    <Compile Include="Model\Animation.cs" />
-=======
     <Compile Include="Model\Sound.cs" />
     <Compile Include="Model\Sprite.cs" />
->>>>>>> c872f27c973ecffe3eea4d976f5616524ce11fab
     <Compile Include="Model\GameProject.cs" />
     <Compile Include="Model\GameSettings.cs" />
     <Compile Include="Model\Image.cs" />
