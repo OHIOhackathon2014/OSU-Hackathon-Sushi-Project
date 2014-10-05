@@ -4,6 +4,7 @@ package
 	import flash.events.Event;
 	import flash.events.KeyboardEvent;
 	import flash.events.MouseEvent;
+	import flash.utils.getTimer;
 	
 	/**
 	 * ...
@@ -26,7 +27,13 @@ package
 			!ADDLEVELS!
 			
 			current = !FIRSTLEVEL!
-			menuScene.Hide();
+			for (var i:int = 0; i < scenes.length; ++i) {
+				if (scenes[i] == current) {
+					scenes[i].Hide();
+				}
+			}
+			current.Show();
+			
 			addEventListener(Event.ADDED_TO_STAGE, onAddedToStage);
 			addEventListener(Event.ENTER_FRAME, onEnterFrame);
 			addEventListener(MouseEvent.MOUSE_MOVE, onMouseMove);
@@ -37,8 +44,10 @@ package
 		
 		public function onAddedToStage(e:Event):void {
 			removeEventListener(Event.ADDED_TO_STAGE, onAddedToStage);
-			addChild(playScene);
-			addChild(menuScene);
+			
+			for (var i:int = 0; i < scenes.length; ++i) {
+				addChild(scenes[i]);
+			}
 		}
 		
 		public function onEnterFrame(e:Event):void {

@@ -21,6 +21,7 @@ namespace SushiProject.ViewModels
             get { return sprite; }
             set {
                 sprite = value;
+                gameObject.Sprite = Sprite.Sprite;
                 OnPropertyChanged("Sprite");
             }
         }

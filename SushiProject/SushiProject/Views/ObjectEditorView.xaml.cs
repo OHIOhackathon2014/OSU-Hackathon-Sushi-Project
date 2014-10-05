@@ -152,7 +152,7 @@ namespace SushiProject.Views
             ssv.ShowDialog();
             if (ssv.result != null)
             {
-                ovm.Sprite = ssv.result;    
+                ovm.Sprite = ssv.result;
             }
         }
     }

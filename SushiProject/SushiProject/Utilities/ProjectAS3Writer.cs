@@ -49,7 +49,12 @@ namespace SushiProject.Utilities
         }
         private string ImageResourceName(string name)
         {
-            return String.Format("IMG_{0}", name.Replace(" ", "_"));
+            string str = name.Replace(" ", "_");
+            int extStart = str.IndexOf(".");
+            if (extStart > 0) {
+                str = str.Substring(0,extStart);
+            }
+            return String.Format("IMG_{0}", str);
         }
 
         private void WriteGameObjects(Collection<GameObject> gameObjects)
@@ -62,7 +67,7 @@ namespace SushiProject.Utilities
                 if (go.Sprite != null)
                 {
                     gameObjectText = gameObjectText.Replace("!SPRITEFIELDS!", "public var img:Bitmap;");
-                    gameObjectText = gameObjectText.Replace("!INITSPRITE!", String.Format("img = new Assets.{0}();", ImageResourceName(go.Sprite.Name)));
+                    gameObjectText = gameObjectText.Replace("!INITSPRITE!", String.Format("img = new Assets.{0}();", ImageResourceName(go.Sprite.FirstImage.Name)));
                     gameObjectText = gameObjectText.Replace("!ADDSPRITE!", "addChild(img);");
                 }
                 else
@@ -123,7 +128,7 @@ namespace SushiProject.Utilities
                 //[Embed(source = "assets/images/ball.png")] public static var IMG_BALL:Class;
                 foreach (Image image in sprite.Images)
                 {
-                    graphicsList += "[Embed(source = \"assets/" + image.FileName + "\")] public static var IMG_" + image.Name.Replace(" ", "_") + ":Class;\n";
+                    graphicsList += "[Embed(source = \"assets/" + image.FileName + "\")] public static var " + ImageResourceName(image.Name) + ":Class;\n";
                 }
             }
             foreach (Sound sound in gameProject.Sounds)
