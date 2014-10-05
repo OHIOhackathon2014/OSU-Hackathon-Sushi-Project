@@ -197,7 +197,7 @@ namespace SushiProject.Utilities
                 sprite.FrameRate = int.Parse(spriteXml.Element("FrameRate").Value);
 
                 ///<Image>Images
-                sprite.Images = new Collection<Image>();
+                sprite.Images = new ObservableCollection<Image>();
                 XElement imagesXml = spriteXml.Element("Images");
                 foreach (XElement imageXml in imagesXml.Elements("Image"))
                 {

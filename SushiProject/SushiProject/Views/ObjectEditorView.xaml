@@ -18,6 +18,7 @@
                     </Grid.ColumnDefinitions>
                     <TextBlock Grid.Row="0" Grid.Column="0" Text="Name "/>
                     <TextBox Grid.Row="0" Grid.Column="1" Width="128" Text="{Binding Name}"/>
+                    <Button Grid.Row="1" Grid.Column="0" Content="Set Sprite" Click="Button_Click_1" />
                     <StackPanel Margin="4" Orientation="Horizontal"  Grid.Row="1" Grid.Column="1" >
                         <CheckBox Width="16" Margin="2" Content="{Binding Visible}"/>
                         <TextBlock Text="Visible"/>

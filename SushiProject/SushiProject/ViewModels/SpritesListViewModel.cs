@@ -18,6 +18,7 @@ namespace SushiProject.ViewModels
             set;
         }
 
+
         private GameProject project;
         public GameProject Project
         {

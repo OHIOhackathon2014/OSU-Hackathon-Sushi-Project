@@ -141,5 +141,14 @@ namespace SushiProject.Views
             Mouse.OverrideCursor = null;
         }
         #endregion // Drag and Drop
+
+        private void Button_Click_1(object sender, RoutedEventArgs e)
+        {
+            SpriteSelectorView ssv = new SpriteSelectorView();
+            ObjectViewModel ovm = (ObjectViewModel)DataContext;
+            //ssv.spriteCollection = ovm.spritesListVM.SpriteCollection;
+            ssv.Owner = this;
+            ssv.ShowDialog();
+        }
     }
 }

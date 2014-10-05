@@ -26,6 +26,51 @@ namespace SushiProject.ViewModels
             }
         }
 
+        private int width = 32;
+        public int Width
+        {
+            get { return width; }
+            set
+            {
+                width = value;
+                OnPropertyChanged("Width");
+            }
+        }
+
+        private int height = 32;
+        public int Height
+        {
+            get { return height; }
+            set
+            {
+                height = value;
+                OnPropertyChanged("Height");
+            }
+        }
+
+        private double x;
+        public double X
+        {
+            get { return x; }
+            set
+            {
+                x = value;
+                OnPropertyChanged("X");
+            }
+        }
+
+        private double y;
+        public double Y
+        {
+            get { return y; }
+            set
+            {
+                y = value;
+                OnPropertyChanged("Y");
+            }
+        }
+        
+
         public LevelObjectViewModel()
         {
         }

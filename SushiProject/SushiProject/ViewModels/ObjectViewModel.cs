@@ -15,6 +15,16 @@ namespace SushiProject.ViewModels
 {
     public class ObjectViewModel : INotifyPropertyChanged
     {
+        private SpriteViewModel sprite;
+        public SpriteViewModel Sprite
+        {
+            get { return sprite; }
+            set {
+                sprite = value;
+                OnPropertyChanged("Sprite");
+            }
+        }
+
         public GameObject gameObject { get; set; }
 
         private string windowTitle="";

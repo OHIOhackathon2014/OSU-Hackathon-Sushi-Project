@@ -30,7 +30,7 @@
                         <TextBlock DockPanel.Dock="Bottom"
                             Text="{Binding Path=Name}"
                             HorizontalAlignment="Center"/>
-                        <Image Source="pack://application:,,,/Assets/ball.png" />
+                        <Image Source="{Binding Sprite.FirstImage.ImageSrc}" />
                     </DockPanel>
                 </DataTemplate>
             </ListBox.ItemTemplate>

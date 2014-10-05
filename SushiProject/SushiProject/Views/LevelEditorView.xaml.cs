@@ -64,7 +64,16 @@ namespace SushiProject.Views
             using (bmpStage.GetBitmapContext())
             {
                 bmpStage.Clear(dataContext.BackgroundColor);
-                bmpStage.Blit(new Rect(10, 10, 64, 64), particleBmp, new Rect(0, 0, 48, 48));
+
+                // Draw the game objects
+                foreach (LevelObjectViewModel obj in dataContext.LevelObjects)
+                {
+                    bmpStage.Blit(new Rect(obj.X, obj.Y, obj.Width, obj.Height),            // Destination rectangle
+                        particleBmp,                                                        // Image source
+                        new Rect(0, 0, particleBmp.Width, particleBmp.Height)               // Source rectangle
+                        );
+                }
+                
             }
         }
         #endregion // Draw the canvas

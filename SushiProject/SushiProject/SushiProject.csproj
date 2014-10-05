@@ -36,6 +36,7 @@
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
     <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml" />
     <Reference Include="Microsoft.CSharp" />
@@ -91,12 +92,14 @@
     <Compile Include="Model\Prefab.cs" />
     <Compile Include="Utilities\ProjectAS3Compiler.cs" />
     <Compile Include="Utilities\ProjectAS3Writer.cs" />
+    <Compile Include="Utilities\ProjectDirectoryManager.cs" />
     <Compile Include="Utilities\ProjectXMLWriter.cs" />
     <Compile Include="Utility.cs" />
     <Compile Include="ViewModels\AvailableMethodsViewModel.cs" />
     <Compile Include="ViewModels\LevelObjectViewModel.cs" />
     <Compile Include="ViewModels\MethodViewModel.cs" />
     <Compile Include="ViewModels\BehaviorViewModel.cs" />
+    <Compile Include="ViewModels\SpriteSelectorViewModel.cs" />
     <Compile Include="ViewModels\SpritesListViewModel.cs" />
     <Compile Include="ViewModels\SoundsListViewModel.cs" />
     <Compile Include="ViewModels\LevelsListViewModel.cs" />
@@ -136,6 +139,9 @@
     </Compile>
     <Compile Include="Views\SpriteEditorView.xaml.cs">
       <DependentUpon>SpriteEditorView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\SpriteSelectorView.xaml.cs">
+      <DependentUpon>SpriteSelectorView.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\SpritesView.xaml.cs">
       <DependentUpon>SpritesView.xaml</DependentUpon>
@@ -189,6 +195,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\SpriteEditorView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\SpriteSelectorView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

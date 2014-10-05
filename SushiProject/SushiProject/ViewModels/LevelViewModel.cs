@@ -96,6 +96,18 @@ namespace SushiProject.ViewModels
             SaveCommand = new Command(Save, AlwaysTrue);
         }
 
+        public void SetLevelObject(Level level)
+        {
+            this.level = level;
+            foreach (LevelObject lo in level.levelObjects)
+            {
+                LevelObjectViewModel lovm = new LevelObjectViewModel();
+                lovm.X = lo.X;
+                lovm.Y = lo.Y;
+                LevelObjects.Add(lovm);
+            }
+        }
+
         public void LoadProjectSettings(GameSettings settings)
         {
             ScreenWidth = settings.ScreenWidth;

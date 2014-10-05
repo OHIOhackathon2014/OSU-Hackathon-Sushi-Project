@@ -4,6 +4,7 @@
         Title="{Binding WindowTitle}" Height="500" Width="500">
     <DockPanel>
         <StackPanel DockPanel.Dock="Top" Orientation="Horizontal" HorizontalAlignment="Center">
+            <Button Content="Load" Width="128" Height="64" Margin="8" Command="{Binding OpenCommand}" />
             <Button Content="Play" Width="64" Height="64" Margin="8" />
             <Button Content="Stop" Width="64" Height="64" Margin="8" />
         </StackPanel>
@@ -25,50 +26,24 @@
                 <TextBox Grid.Row="2" Grid.Column="1" Text="{Binding RepeatCount}" />
             </Grid>
         </StackPanel>
-        <ListBox x:Name="ImageListBox" ItemsSource="{Binding Images}" HorizontalContentAlignment="Stretch">
-            <ListBox.ItemContainerStyle>
-                <Style TargetType="ListBoxItem">
-                    <Setter Property="HorizontalContentAlignment" Value="Stretch"></Setter>
-                </Style>
-            </ListBox.ItemContainerStyle>
-            <ListBox.ItemTemplate>
-                <DataTemplate>
-                    <DockPanel HorizontalAlignment="Stretch">
-                        <Grid DockPanel.Dock="Left" Width="96">
-                            <Grid.RowDefinitions>
-                                <RowDefinition/>
-                                <RowDefinition/>
-                            </Grid.RowDefinitions>
-                            <Grid.ColumnDefinitions>
-                                <ColumnDefinition/>
-                                <ColumnDefinition />
-                            </Grid.ColumnDefinitions>
-                            <Image Grid.Row="1" Grid.Column="1" Width="48" Height="48" />
-                        </Grid>
-                        <ListBox ItemsSource="{Binding Images}" Width="480" HorizontalAlignment="Stretch" HorizontalContentAlignment="Stretch">
-                            <ListBox.ItemsPanel>
-                                <ItemsPanelTemplate>
-                                    <WrapPanel/>
-                                </ItemsPanelTemplate>
-                            </ListBox.ItemsPanel>
-                            <ListBox.ItemContainerStyle>
-                                <Style TargetType="ListBoxItem">
-                                    <Setter Property="HorizontalContentAlignment" Value="Stretch"></Setter>
-                                </Style>
-                            </ListBox.ItemContainerStyle>
-                            <ListBox.ItemTemplate>
-                                <DataTemplate>
-                                    <DockPanel>
-                                        <TextBlock DockPanel.Dock="Bottom" HorizontalAlignment="Center" Text="{Binding Name}" />
-                                        <Image Width="64" Height="64" Source="pack://application:,,,/Assets/ball.png" />
-                                    </DockPanel>
-                                </DataTemplate>
-                            </ListBox.ItemTemplate>
-                        </ListBox>
-                    </DockPanel>
-                </DataTemplate>
-            </ListBox.ItemTemplate>
-        </ListBox>
+        <DockPanel DataContext="{Binding Sprite}">
+            <ListBox DockPanel.Dock="Bottom" x:Name="ImageListBox" Height="96" ItemsSource="{Binding Images}" HorizontalContentAlignment="Stretch">
+                <ListBox.ItemContainerStyle>
+                    <Style TargetType="ListBoxItem">
+                        <Setter Property="HorizontalContentAlignment" Value="Stretch"></Setter>
+                    </Style>
+                </ListBox.ItemContainerStyle>
+                <ListBox.ItemTemplate>
+                    <DataTemplate>
+                        <DockPanel>
+                            <TextBlock DockPanel.Dock="Bottom" HorizontalAlignment="Center" Text="{Binding Name}" />
+                            <Image Width="64" Height="64" Source="{Binding ImageSrc}" />
+                        </DockPanel>
+                    </DataTemplate>
+                </ListBox.ItemTemplate>
+            </ListBox>
+            <Image Source="{Binding}"></Image>
+        </DockPanel>
     </DockPanel>
         
 </Window>
