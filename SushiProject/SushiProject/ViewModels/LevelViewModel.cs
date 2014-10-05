@@ -7,6 +7,7 @@ using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Media;
 
 namespace SushiProject.ViewModels
 {
@@ -31,6 +32,35 @@ namespace SushiProject.ViewModels
                 windowTitle = value;
                 OnPropertyChanged("WindowTitle");
             }
+        }
+
+        private Boolean backgroundColorIsDefault = true;
+        public Boolean BackgroundColorIsDefault
+        {
+            get { return backgroundColorIsDefault; }
+            set { backgroundColorIsDefault = value; }
+        }
+        
+        private Color backgroundColor;
+        public Color BackgroundColor
+        {
+            get { return backgroundColor; }
+            set { backgroundColor = value; OnPropertyChanged("BackgroundColor"); }
+        }
+        
+
+        private int screenWidth = 640;
+        public int ScreenWidth
+        {
+            get { return screenWidth; }
+            set { screenWidth = value; OnPropertyChanged("ScreenWidth"); }
+        }
+
+        private int screenHeight = 480;
+        public int ScreenHeight
+        {
+            get { return screenHeight; }
+            set { screenHeight = value; OnPropertyChanged("ScreenHeight"); }
         }
         
         private string name;
@@ -64,6 +94,16 @@ namespace SushiProject.ViewModels
             LevelObjects = new ObservableCollection<LevelObjectViewModel>();
 
             SaveCommand = new Command(Save, AlwaysTrue);
+        }
+
+        public void LoadProjectSettings(GameSettings settings)
+        {
+            ScreenWidth = settings.ScreenWidth;
+            ScreenHeight = settings.ScreenHeight;
+            if (backgroundColorIsDefault)
+            {
+                BackgroundColor = settings.BackgroundColor;
+            }
         }
 
         public Command SaveCommand

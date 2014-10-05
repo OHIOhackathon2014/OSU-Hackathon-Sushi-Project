@@ -30,9 +30,13 @@ namespace SushiProject.Views
 
         protected void HandleDoubleClick(object sender, MouseButtonEventArgs e)
         {
+            LevelViewModel levelVM = (LevelViewModel)((sender as FrameworkElement).DataContext);
+            LevelsListViewModel lvm = DataContext as LevelsListViewModel;
+            levelVM.LoadProjectSettings(lvm.Project.Settings);
             var window = new LevelEditorView();
             window.Owner = Window.GetWindow(this);
-            window.DataContext = (sender as FrameworkElement).DataContext;
+            window.DataContext = levelVM;
+
             window.Show();
         }
 

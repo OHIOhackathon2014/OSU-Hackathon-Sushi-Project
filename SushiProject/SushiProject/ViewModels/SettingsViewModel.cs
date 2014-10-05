@@ -89,6 +89,8 @@ namespace SushiProject.ViewModels
             project.Settings.FrameRate = FrameRate;
             project.Settings.ScreenWidth = ScreenWidth;
             project.Settings.ScreenHeight = ScreenHeight;
+
+
         }
 
         public void RevertChanges()

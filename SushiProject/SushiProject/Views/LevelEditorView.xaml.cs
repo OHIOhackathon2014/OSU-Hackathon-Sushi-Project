@@ -21,27 +21,32 @@ namespace SushiProject.Views
     public partial class LevelEditorView : Window
     {
         private WriteableBitmap particleBmp;
-        private WriteableBitmap bmp;
+        private WriteableBitmap bmpStage;
+        private LevelViewModel dataContext;
 
         public LevelEditorView()
         {
             InitializeComponent();
             particleBmp = LoadBitmap("/Assets/ball.png");
-            bmp = BitmapFactory.New(640, 480);
-            bmp.Clear(Colors.BlueViolet);
-            levelImage.Source = bmp;
 
-            CompositionTarget.Rendering += new EventHandler(CompositionTarget_Rendering);
 
             Loaded += MyWindow_Loaded;
         }
 
         private void MyWindow_Loaded(object sender, RoutedEventArgs e)
         {
+            if (DataContext == null) return;
+            dataContext = (LevelViewModel)DataContext;
+            bmpStage = BitmapFactory.New(dataContext.ScreenWidth, dataContext.ScreenHeight);
+            bmpStage.Clear(dataContext.BackgroundColor);
+            levelImage.Source = bmpStage;
+
+            CompositionTarget.Rendering += new EventHandler(CompositionTarget_Rendering);
             levelImageScrollViewer.ScrollToVerticalOffset(levelImageScrollViewer.ScrollableHeight / 2);
             levelImageScrollViewer.ScrollToHorizontalOffset(levelImageScrollViewer.ScrollableWidth / 2);
         }
 
+        #region Draw the canvas
         WriteableBitmap LoadBitmap(string path)
         {
             var img = new BitmapImage();
@@ -56,15 +61,13 @@ namespace SushiProject.Views
         void CompositionTarget_Rendering(object sender, EventArgs e)
         {
             // Wrap updates in a GetContext call, to prevent invalidation and nested locking/unlocking during this block
-            // NOTE: This is not strictly necessary for the SL version as this is a WPF feature, however we include it here for completeness and to show
-            // a similar API to WPF
-            using (bmp.GetBitmapContext())
+            using (bmpStage.GetBitmapContext())
             {
-                LevelViewModel context = (LevelViewModel)DataContext;
-                bmp.Clear(Colors.LightSalmon);
-                bmp.Blit(new Rect(10, 10, 64, 64), particleBmp, new Rect(0, 0, 48, 48));
+                bmpStage.Clear(dataContext.BackgroundColor);
+                bmpStage.Blit(new Rect(10, 10, 64, 64), particleBmp, new Rect(0, 0, 48, 48));
             }
         }
+        #endregion // Draw the canvas
         
     }
 }

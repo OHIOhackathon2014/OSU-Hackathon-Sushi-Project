@@ -54,6 +54,12 @@ namespace SushiProject.ViewModels
                     lvm.ObjectsVM = this.ObjectsVM;
                     lvm.Name = level.Name;
                     LevelCollection.Add(lvm);
+                    lvm.ScreenWidth = Project.Settings.ScreenWidth;
+                    lvm.ScreenHeight = Project.Settings.ScreenHeight;
+                    if (lvm.BackgroundColorIsDefault)
+                    {
+                        lvm.BackgroundColor = Project.Settings.BackgroundColor;
+                    }
                 }
                 OnPropertyChanged("Project");
             }
