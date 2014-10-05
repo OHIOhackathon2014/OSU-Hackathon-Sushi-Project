@@ -391,6 +391,13 @@ dl dt {
     text-align:center;
 }
 
+.screenshot{
+	margin-left: auto;
+	margin-right:auto;
+	width:300px;
+	height:auto;
+}
+
 footer {
   background: transparent url('../images/hr.png') 0 0 no-repeat;
   margin-top: 40px;
