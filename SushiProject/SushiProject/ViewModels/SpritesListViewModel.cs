@@ -1,4 +1,5 @@
-﻿using SushiProject.Model;
+﻿using SushiProject.Commands;
+using SushiProject.Model;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -17,31 +18,46 @@ namespace SushiProject.ViewModels
             set;
         }
 
-        private GameProject gameProject;
-
-        public GameProject GameProject
+        private GameProject project;
+        public GameProject Project
         {
-            get { return gameProject; }
-            set {
-                gameProject = value;
-
+            get 
+            { 
+                return project; 
+            }
+            set 
+            {
+                project = value;
                 SpriteCollection.Clear();
-                foreach (Image img in gameProject.Images)
+                foreach (Sprite sprite in project.Sprites)
                 {
                     SpriteViewModel svm = new SpriteViewModel();
-                    svm.Image = img;
+                    svm.Sprite = sprite;
                     SpriteCollection.Add(svm);
                 }
 
-                OnPropertyChanged("GameProject");
+                OnPropertyChanged("Project");
             }
         }
 
         public SpritesListViewModel()
         {
             SpriteCollection = new ObservableCollection<SpriteViewModel>();
+            //SpriteViewModel svm = new SpriteViewModel();
+            //svm.Name = "image 1";
+            //SpriteCollection.Add(svm);
+            NewCommand = new Command(NewSprite, AlwaysTrue);
+        }
+        public bool AlwaysTrue(object target) { return true; }
+        public Command NewCommand { get; private set; }
+
+        public void NewSprite(object target)
+        {
             SpriteViewModel svm = new SpriteViewModel();
-            svm.Name = "image 1";
+            svm.Name = "sprite";
+            Sprite sprite = new Sprite();
+            sprite.Name = svm.Name;
+            Project.Sprites.Add(sprite);
             SpriteCollection.Add(svm);
         }
 

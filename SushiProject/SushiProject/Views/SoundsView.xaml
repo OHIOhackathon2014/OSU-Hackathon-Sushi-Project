@@ -1,8 +1,11 @@
 ﻿<UserControl x:Class="SushiProject.Views.SoundsView"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-             xmlns:vm="clr-namespace:SushiProject.ViewModels"
-             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006">
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:vm="clr-namespace:SushiProject.ViewModels">
+    <UserControl.DataContext>
+        <vm:SoundsListViewModel />
+    </UserControl.DataContext>
     <UserControl.Resources>
         <Style x:Key="itemstyle" TargetType="{x:Type ListBoxItem}">
             <EventSetter Event="MouseDoubleClick" Handler="HandleDoubleClick" />
@@ -10,12 +13,12 @@
     </UserControl.Resources>
     <DockPanel>
         <StackPanel DockPanel.Dock ="Bottom" Orientation="Horizontal" HorizontalAlignment="Center">
-            <Button Height="64" Width="64" Content="New" />
-            <Button Height="64" Width="64" Content="Open" />
-            <Button Height="64" Width="64" Content="Rename" />
-            <Button Height="64" Width="64" Content="Delete" />
+            <Button Height="64" Width="64" Content="New" Command="{Binding NewCommand}" />
+            <Button Height="64" Width="64" Content="Open" Click="OpenButton" />
+            <Button Height="64" Width="64" Content="Rename" Click="RenameButton" />
+            <Button Height="64" Width="64" Content="Delete" Click="DeleteButton" />
         </StackPanel>
-        <ListBox ItemsSource="{Binding SoundCollection}" ItemContainerStyle="{StaticResource itemstyle}">
+        <ListBox x:Name="SoundsListBox" ItemsSource="{Binding SoundCollection}" ItemContainerStyle="{StaticResource itemstyle}">
             <ListBox.ItemsPanel>
                 <ItemsPanelTemplate>
                     <WrapPanel/>
@@ -24,10 +27,6 @@
             <ListBox.ItemTemplate>
                 <DataTemplate>
                     <DockPanel Width="64" Height="64">
-                        <TextBlock DockPanel.Dock="Bottom"
-                            Text="{Binding Path=Name}"
-                            HorizontalAlignment="Center"/>
-                        <Image Source="pack://application:,,,/Assets/speaker.png" />
                         <TextBlock DockPanel.Dock="Bottom"
                             Text="{Binding Path=Name}"
                             HorizontalAlignment="Center"/>

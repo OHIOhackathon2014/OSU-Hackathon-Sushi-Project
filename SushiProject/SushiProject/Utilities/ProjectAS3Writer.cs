@@ -55,9 +55,10 @@ namespace SushiProject.Utilities
         {
             string templateText = System.IO.File.ReadAllText("../../Templates/AssetsTemplate");
             string assetsText = "";
-            foreach (Image image in gameProject.Images)
+            foreach (Sprite sprite in gameProject.Sprites)
             {
-                assetsText += "[Embed src=\"" + image.FilePath + "\"]\nstatic public var " + image.Name + ":Class;\n";
+                foreach (Image image in sprite.Images) 
+                    assetsText += "[Embed src=\"" + image.FilePath + "\"]\nstatic public var " + image.Name + ":Class;\n";
             }
             /*
             foreach (Sound sound in gameProject.Sounds)

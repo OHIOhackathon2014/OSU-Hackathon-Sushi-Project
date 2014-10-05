@@ -19,17 +19,39 @@ namespace SushiProject.ViewModels
             set;
         }
 
-        public GameProject Project { get; set; }
+        private GameProject project;
+        public GameProject Project
+        {
+            get
+            {
+                return project;
+            }
+            set
+            {
+                project = value;
+                SoundCollection.Clear();
+                foreach (Sound sound in project.Sounds)
+                {
+                    SoundViewModel svm = new SoundViewModel();
+                    svm.Sound = sound;
+                    SoundCollection.Add(svm);
+                }
+                OnPropertyChanged("Project");
+            }
+        }
 
         public SoundsListViewModel()
         {
-            NewSoundCommand = new Command(NewSound, AlwaysTrue);
+            NewCommand = new Command(NewSound, AlwaysTrue);
             SoundCollection = new ObservableCollection<SoundViewModel>();
-            SoundViewModel svm = new SoundViewModel();
-            svm.Name = "bounce.mp3";
-            SoundCollection.Add(svm);
-
-            
+            //SoundViewModel svm = new SoundViewModel();
+            //svm.Name = "bounce.mp3";
+            //SoundCollection.Add(svm);
+        }
+        public Command NewCommand
+        {
+            get;
+            private set;
         }
 
         public void NewSound(object target)
@@ -37,15 +59,15 @@ namespace SushiProject.ViewModels
             DialogResult dialogResult = MessageBox.Show("Do you want to make a new sound file?", "New Project", System.Windows.Forms.MessageBoxButtons.YesNo);
             if (dialogResult == DialogResult.Yes)
             {
-                //NewSoundFile = new Sound();
+                SoundViewModel svm = new SoundViewModel();
+                svm.Name = "default";
+                Sound sound = new Sound();
+                sound.Name = svm.Name;
+                Project.Sounds.Add(sound);
+                SoundCollection.Add(svm);
             }
         }
 
-        public Command NewSoundCommand
-        {
-            get;
-            private set;
-        }
         public bool AlwaysTrue(object target) { return true; }
 
         public event PropertyChangedEventHandler PropertyChanged;
