@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -23,6 +24,14 @@ namespace SushiProject.Model
         {
             Name = "";
             FilePath = "";
+        }
+
+        public string FileName
+        {
+            get
+            {
+                return Path.GetFileName(FilePath);
+            }
         }
 
         private ImageSource imageSrc;

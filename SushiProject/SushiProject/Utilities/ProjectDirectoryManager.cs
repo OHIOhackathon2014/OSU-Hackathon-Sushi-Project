@@ -54,15 +54,24 @@ namespace SushiProject.Utilities
         {
             string fileName = System.IO.Path.GetFileName(sourceFile);
             string newFileName = Path + ProjectName + "\\" + ImagesDirectory + fileName;
-            System.IO.File.Move(sourceFile, newFileName);
+            System.IO.File.Copy(sourceFile, newFileName);
             return newFileName;
+        }
+
+        public void CopyAllImagesToFolder(string destinationPath)
+        {
+            string[] files = Directory.GetFiles(Path + ProjectName + "\\" + ImagesDirectory);
+            foreach (string file in files)
+            {
+                System.IO.File.Copy(file, destinationPath +"\\"+ System.IO.Path.GetFileName(file));
+            }
         }
 
         public string AddSound(string sourceFile)
         {
             string fileName = System.IO.Path.GetFileName(sourceFile);
             string newFileName = Path + ProjectName + "\\" + SoundsDirectory + fileName;
-            System.IO.File.Move(sourceFile, newFileName);
+            System.IO.File.Copy(sourceFile, newFileName);
             return newFileName;
         }
     }

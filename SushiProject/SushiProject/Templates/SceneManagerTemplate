@@ -25,7 +25,7 @@ package
 			
 			!ADDLEVELS!
 			
-			current = !FIRSTLEVEL!;
+			current = !FIRSTLEVEL!
 			menuScene.Hide();
 			addEventListener(Event.ADDED_TO_STAGE, onAddedToStage);
 			addEventListener(Event.ENTER_FRAME, onEnterFrame);

@@ -6,6 +6,8 @@ package
 	[SWF(backgroundColor="#!BGCOLOR!", width="!WIDTH!", height="!HEIGHT!", frameRate="!FRAMERATE!")]
 	public class Main extends Sprite 
 	{
+		static public var w:int = !WIDTH!, h:int = !HEIGHT!;
+		public var sceneManager:SceneManager;
 		public function Main():void 
 		{
 			if (stage) init();
@@ -16,6 +18,8 @@ package
 		{
 			removeEventListener(Event.ADDED_TO_STAGE, init);
 			// entry point
+			sceneManager = new SceneManager();
+			addChild(sceneManager);
 		}
 	}
 }

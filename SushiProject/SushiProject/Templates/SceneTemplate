@@ -8,7 +8,7 @@ package
 	
 	public class !SCENECLASSNAME! extends Sprite implements SceneBase
 	{
-		public gameObjectList:Array = [];
+		public var gameObjectList:Array = [];
 		public var mouseDown:Boolean;
 		public var mX:Number = -100, mY:Number = -100;
 		
@@ -20,7 +20,7 @@ package
 		}
 		
 		public function Init():void {
-			!INITGAMEOBJECTS!
+!INITGAMEOBJECTS!
 		}
 		
 		public function onAddedToStage(e:Event):void {
@@ -34,7 +34,9 @@ package
 			back.alpha = 0;
 			addChild(back);
 			
-			!ADDCHILDREN!
+			for (var i:int = 0; i < gameObjectList.length; ++i) {
+				addChild(gameObjectList[i]);
+			}
 		}
 		
 		public function onEnterFrame(elapsed:Number):void {

@@ -71,6 +71,7 @@ namespace SushiProject.ViewModels
             {
                 name = value;
                 level.Name = name;
+                
                 WindowTitle = String.Format("Level Editor - {0}", name);
                 OnPropertyChanged("Name");
             }

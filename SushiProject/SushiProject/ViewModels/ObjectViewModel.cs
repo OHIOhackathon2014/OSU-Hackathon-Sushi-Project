@@ -75,6 +75,7 @@ namespace SushiProject.ViewModels
         {
             // Save the view model data to the model
             gameObject.Name = Name;
+            gameObject.Sprite = Sprite.Sprite;
             ((System.Windows.Window)target).Close();
         }
 

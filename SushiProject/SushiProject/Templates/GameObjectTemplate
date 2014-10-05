@@ -5,10 +5,14 @@ package
 	
 	public class !NAME! extends Sprite 
 	{
+		!SPRITEFIELDS!
+		
 		public function !NAME!(x:Number, y:Number):void 
 		{
 			this.x = x;
 			this.y = y;
+			
+			!INITSPRITE!
 			
 			addEventListener(Event.ADDED_TO_STAGE, AddEventModel);
 		}
@@ -16,6 +20,8 @@ package
 		private function AddEventModel(e:Event):void 
 		{
 			removeEventListener(Event.ADDED_TO_STAGE, init);
+			
+			!ADDSPRITE!
 		}
 	}
 }
